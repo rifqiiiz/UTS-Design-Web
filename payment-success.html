@@ -323,6 +323,13 @@
             };
             return methods[method] || method;
         }
+        // Tambahkan informasi status pembayaran
+            if (orderData.paymentMethod === 'bank') {
+                orderInfo.innerHTML += `
+                    <p><strong>Status Pembayaran:</strong> ✅ Telah Dikonfirmasi</p>
+                    <p><strong>Virtual Account:</strong> 8888${orderData.orderId.replace('BLESS-', '').slice(0, 12)}</p>
+                `;
+            }
         
         // Countdown redirect
         let seconds = 10;

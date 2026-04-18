@@ -332,11 +332,11 @@
                         <h3 style="margin-top: 20px;">Metode Pembayaran</h3>
                         <div class="payment-methods">
                             <div class="payment-method" data-method="bank">
-                                <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Bank Transfer">
-                                <span>Bank Transfer</span>
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/012/696/665/small_2x/atm-card-icon-free-free-vector.jpg" alt="Bank Transfer">
+                                <span>Transfer Bank</span>
                             </div>
                             <div class="payment-method" data-method="cod">
-                                <img src="https://cdn-icons-png.flaticon.com/512/2331/2331966.png" alt="COD">
+                                <img src="https://cdn.shopify.com/app-store/listing_images/cc2affba217a6ed762d7cb7369d98cd0/icon/COCQnY-5mI8DEAE=.png" alt="COD">
                                 <span>COD</span>
                             </div>
                         </div>
@@ -462,45 +462,53 @@
             });
         });
         
-        // Submit checkout
-        const checkoutForm = document.getElementById('checkout-form');
-        checkoutForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Validasi form
-            const fullname = document.getElementById('fullname').value;
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value;
-            const address = document.getElementById('address').value;
-            const city = document.getElementById('city').value;
-            const zipcode = document.getElementById('zipcode').value;
-            
-            if (!fullname || !phone || !email || !address || !city || !zipcode) {
-                alert('Harap lengkapi semua data!');
-                return;
-            }
-            
-            // Simpan data pesanan
-            const orderData = {
-                orderId: 'BLESS-' + Date.now(),
-                customer: { fullname, phone, email, address, city, zipcode },
-                items: cart,
-                paymentMethod: document.getElementById('payment-method').value,
-                subtotal: parseInt(document.getElementById('subtotal').innerHTML.replace(/[^0-9]/g, '')),
-                shipping: 10000,
-                tax: parseInt(document.getElementById('tax').innerHTML.replace(/[^0-9]/g, '')),
-                total: parseInt(document.getElementById('total-amount').innerHTML.replace(/[^0-9]/g, '')),
-                orderDate: new Date().toISOString()
-            };
-            
-            localStorage.setItem('currentOrder', JSON.stringify(orderData));
-            
-            // Kosongkan cart
-            localStorage.setItem('blessCart', JSON.stringify([]));
-            
-            // Redirect ke halaman sukses
-            window.location.href = 'payment-success.html';
-        });
+            // Submit checkout
+            const checkoutForm = document.getElementById('checkout-form');
+            checkoutForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Validasi form
+                const fullname = document.getElementById('fullname').value;
+                const phone = document.getElementById('phone').value;
+                const email = document.getElementById('email').value;
+                const address = document.getElementById('address').value;
+                const city = document.getElementById('city').value;
+                const zipcode = document.getElementById('zipcode').value;
+                
+                if (!fullname || !phone || !email || !address || !city || !zipcode) {
+                    alert('Harap lengkapi semua data!');
+                    return;
+                }
+                
+                // Simpan data pesanan
+                const paymentMethod = document.getElementById('payment-method').value;
+                const orderData = {
+                    orderId: 'BLESS-' + Date.now(),
+                    customer: { fullname, phone, email, address, city, zipcode },
+                    items: cart,
+                    paymentMethod: paymentMethod,
+                    subtotal: parseInt(document.getElementById('subtotal').innerHTML.replace(/[^0-9]/g, '')),
+                    shipping: 10000,
+                    tax: parseInt(document.getElementById('tax').innerHTML.replace(/[^0-9]/g, '')),
+                    total: parseInt(document.getElementById('total-amount').innerHTML.replace(/[^0-9]/g, '')),
+                    orderDate: new Date().toISOString(),
+                    paymentStatus: 'pending'
+                };
+                
+                localStorage.setItem('currentOrder', JSON.stringify(orderData));
+                
+                // Kosongkan cart
+                localStorage.setItem('blessCart', JSON.stringify([]));
+                
+                // Redirect berdasarkan metode pembayaran
+                if (paymentMethod === 'bank') {
+                    // Untuk transfer bank, redirect ke halaman virtual account
+                    window.location.href = 'payment-transfer.html';
+                } else {
+                    // Untuk QRIS dan COD, langsung ke halaman sukses
+                    window.location.href = 'payment-success.html';
+                }
+            });
         
         // Tampilkan data
         displayCheckoutItems();
