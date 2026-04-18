@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Bless Bakery</title>
+    <link rel="stylesheet" href="bless.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <style>
+        .checkout-container {
+            max-width: 1200px;
+            margin: 100px auto 50px;
+            padding: 0 20px;
+        }
+        
+        .checkout-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .checkout-header h1 {
+            color: var(--primary-green);
+            font-size: 2.5rem;
+        }
+        
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 30px;
+        }
+        
+        .order-summary {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .order-summary h3 {
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--beige);
+        }
+        
+        .checkout-items {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        
+        .checkout-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .checkout-item img {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        
+        .checkout-item-info {
+            flex: 1;
+        }
+        
+        .checkout-item-info h4 {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .checkout-item-info p {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .checkout-item-price {
+            text-align: right;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+        
+        .summary-details {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--beige);
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .summary-row.total {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .payment-form {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .payment-form h3 {
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .payment-method {
+            flex: 1;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .payment-method:hover {
+            border-color: var(--primary-green);
+        }
+        
+        .payment-method.selected {
+            border-color: var(--primary-green);
+            background: rgba(74, 93, 69, 0.05);
+        }
+        
+        .payment-method img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 8px;
+        }
+        
+        .payment-method span {
+            display: block;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .btn-place-order {
+            width: 100%;
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+        
+        .btn-place-order:hover {
+            background: var(--light-green);
+        }
+        
+        .back-to-cart {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .order-summary {
+                position: static;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <span>Gratis Ongkir & Diskon 15% Untuk Pengguna Baru! Code: BLESSNEW</span>
+            <a href="index.html#promo" class="btn-top">Belanja sekarang &gt;</a>
+        </div>
+
+        <div class="header-main">
+            <div class="logo">
+                <span class="logo-bless">bléss</span><br>
+                <span class="logo-bakery">bakery</span>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Cari produk...">
+                <span class="search-icon">🔍</span>
+            </div>
+            
+            <div class="nav-icons">
+                <a href="#">♡</a>
+                <a href="#">👤</a>
+                <a href="index.html" style="position: relative;">🛒</a>
+            </div>
+        </div>
+
+        <nav class="sub-nav">
+            <a href="index.html#home">Beranda</a>
+            <a href="index.html#produk">Produk</a>
+            <a href="index.html#promo">Promo</a>
+            <a href="index.html#about">Tentang Kami</a>
+            <a href="index.html#contact">Hubungi Kami</a>
+            <a href="index.html#testimoni">Testimoni</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="checkout-container">
+            <div class="checkout-header">
+                <h1>Checkout</h1>
+                <p>Lengkapi data diri Anda untuk menyelesaikan pesanan</p>
+            </div>
+
+            <div class="checkout-grid">
+                <div class="order-summary">
+                    <h3>Ringkasan Pesanan</h3>
+                    <div id="checkout-items" class="checkout-items"></div>
+                    <div class="summary-details">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="subtotal">Rp 0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Ongkos Kirim</span>
+                            <span id="shipping-cost">Rp 10.000</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Pajak (10%)</span>
+                            <span id="tax">Rp 0</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span id="total-amount">Rp 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-form">
+                    <h3>Informasi Pengiriman</h3>
+                    <form id="checkout-form">
+                        <div class="form-group">
+                            <label>Nama Lengkap</label>
+                            <input type="text" id="fullname" placeholder="Masukkan nama lengkap" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Nomor Telepon</label>
+                            <input type="tel" id="phone" placeholder="0812-3456-7890" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="email" placeholder="email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Alamat Lengkap</label>
+                            <textarea id="address" rows="3" placeholder="Jl. Roti Manis No. 123, Kota Kuliner" required></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Kota</label>
+                                <input type="text" id="city" placeholder="Kota" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Kode Pos</label>
+                                <input type="text" id="zipcode" placeholder="Kode Pos" required>
+                            </div>
+                        </div>
+                        
+                        <h3 style="margin-top: 20px;">Metode Pembayaran</h3>
+                        <div class="payment-methods">
+                            <div class="payment-method" data-method="bank">
+                                <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Bank Transfer">
+                                <span>Bank Transfer</span>
+                            </div>
+                            <div class="payment-method" data-method="cod">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2331/2331966.png" alt="COD">
+                                <span>COD</span>
+                            </div>
+                        </div>
+                        <input type="hidden" id="payment-method" value="bank">
+                        
+                        <button type="submit" class="btn-place-order">Buat Pesanan</button>
+                    </form>
+                </div>
+            </div>
+            
+            <a href="index.html" class="back-to-cart">← Kembali ke Belanja</a>
+        </div>
+    </main>
+
+<footer id="contact" class="footer">
+    <div class="footer-content">
+        <h3>Bless Bakery</h3>
+        <p>Roti Segar, Penuh Berkat Setiap Hari</p>
+        
+        <!-- Social Media Section -->
+        <div class="social-media">
+            <h4>Ikuti Kami</h4>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/blessbakery.indo/" target="_blank" class="social-icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://facebook.com/blessbakery" target="_blank" class="social-icon facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://x.com/blessbakery" target="_blank" class="social-icon x">
+                    <i class="fab fa-x"></i>
+                </a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="social-icon whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-contact-info">
+            <p>
+                📍 
+                <a href="https://www.google.com/maps/place/Bless+Bakery+Madiun+Agus+Salim/@-7.6367555,111.5145923,17z/data=!3m1!4b1!4m6!3m5!1s0x2e79bf0714df222f:0x2cafd072bc265365!8m2!3d-7.6367555!4d111.5171672!16s%2Fg%2F11stvc1zdf?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="location-link">
+                    Jl. H. Agus Salim No. 130, Madiun
+                </a>
+            </p>
+            <p>
+                📍 
+                <a href="google.com/maps/place/Bless+Bakery+Kelapa+Manis,+Jalan+Kelapa+Manis,+Manisrejo,+Kota+Madiun,+Jawa+Timur/@-7.6165,111.5278,17z/data=!4m2!3m1!1s0x2e79be90cc80c0b5:0x26593c632f5d69cf?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="location-link">
+                    Jl. Kelapa Manis No. 16 A-B, Madiun
+                </a>
+            </p>
+            <p>📞 +62 812-3456-7890</p>
+            <p>📧 hello@blessbakery.com</p>
+            <p>🎁 Buka Setiap Hari: 08:00 - 21:00 WIB</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Bless Bakery. All rights reserved.</p>
+        <div class="footer-bottom-links">
+            <a href="#">Kebijakan Privasi</a>
+            <a href="#">Syarat & Ketentuan</a>
+            <a href="#">FAQ</a>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // Ambil data cart dari localStorage
+        let cart = JSON.parse(localStorage.getItem('blessCart')) || [];
+        
+        // Jika cart kosong, redirect ke index
+        if (cart.length === 0) {
+            alert('Keranjang belanja kosong! Silakan belanja terlebih dahulu.');
+            window.location.href = 'index.html';
+        }
+        
+        // Tampilkan item checkout
+        function displayCheckoutItems() {
+            const container = document.getElementById('checkout-items');
+            let subtotal = 0;
+            
+            container.innerHTML = '';
+            cart.forEach(item => {
+                const itemTotal = item.price * item.qty;
+                subtotal += itemTotal;
+                
+                container.innerHTML += `
+                    <div class="checkout-item">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="checkout-item-info">
+                            <h4>${item.name}</h4>
+                            <p>Jumlah: ${item.qty}</p>
+                        </div>
+                        <div class="checkout-item-price">
+                            Rp ${itemTotal.toLocaleString()}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            // Hitung total
+            const shipping = 10000;
+            const tax = Math.floor(subtotal * 0.1);
+            const total = subtotal + shipping + tax;
+            
+            document.getElementById('subtotal').innerHTML = `Rp ${subtotal.toLocaleString()}`;
+            document.getElementById('tax').innerHTML = `Rp ${tax.toLocaleString()}`;
+            document.getElementById('total-amount').innerHTML = `Rp ${total.toLocaleString()}`;
+            
+            return { subtotal, shipping, tax, total };
+        }
+        
+        // Pilih metode pembayaran
+        const paymentMethods = document.querySelectorAll('.payment-method');
+        paymentMethods.forEach(method => {
+            method.addEventListener('click', () => {
+                paymentMethods.forEach(m => m.classList.remove('selected'));
+                method.classList.add('selected');
+                document.getElementById('payment-method').value = method.getAttribute('data-method');
+            });
+        });
+        
+        // Submit checkout
+        const checkoutForm = document.getElementById('checkout-form');
+        checkoutForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Validasi form
+            const fullname = document.getElementById('fullname').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const zipcode = document.getElementById('zipcode').value;
+            
+            if (!fullname || !phone || !email || !address || !city || !zipcode) {
+                alert('Harap lengkapi semua data!');
+                return;
+            }
+            
+            // Simpan data pesanan
+            const orderData = {
+                orderId: 'BLESS-' + Date.now(),
+                customer: { fullname, phone, email, address, city, zipcode },
+                items: cart,
+                paymentMethod: document.getElementById('payment-method').value,
+                subtotal: parseInt(document.getElementById('subtotal').innerHTML.replace(/[^0-9]/g, '')),
+                shipping: 10000,
+                tax: parseInt(document.getElementById('tax').innerHTML.replace(/[^0-9]/g, '')),
+                total: parseInt(document.getElementById('total-amount').innerHTML.replace(/[^0-9]/g, '')),
+                orderDate: new Date().toISOString()
+            };
+            
+            localStorage.setItem('currentOrder', JSON.stringify(orderData));
+            
+            // Kosongkan cart
+            localStorage.setItem('blessCart', JSON.stringify([]));
+            
+            // Redirect ke halaman sukses
+            window.location.href = 'payment-success.html';
+        });
+        
+        // Tampilkan data
+        displayCheckoutItems();
+    </script>
+</body>
+</html>

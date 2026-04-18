@@ -1,0 +1,461 @@
+# ================= SECURITY HEADERS =================
+# Hanya mengizinkan akses dari IP Indonesia
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Cek apakah IP termasuk range Indonesia
+    RewriteCond %{REMOTE_ADDR} !^103\.10\.
+    RewriteCond %{REMOTE_ADDR} !^103\.123\.
+    RewriteCond %{REMOTE_ADDR} !^103\.137\.
+    RewriteCond %{REMOTE_ADDR} !^103\.14\.
+    RewriteCond %{REMOTE_ADDR} !^103\.15\.
+    RewriteCond %{REMOTE_ADDR} !^103\.16\.
+    RewriteCond %{REMOTE_ADDR} !^103\.174\.
+    RewriteCond %{REMOTE_ADDR} !^103\.175\.
+    RewriteCond %{REMOTE_ADDR} !^103\.176\.
+    RewriteCond %{REMOTE_ADDR} !^103\.18\.
+    RewriteCond %{REMOTE_ADDR} !^103\.19\.
+    RewriteCond %{REMOTE_ADDR} !^103\.20\.
+    RewriteCond %{REMOTE_ADDR} !^103\.21\.
+    RewriteCond %{REMOTE_ADDR} !^103\.22\.
+    RewriteCond %{REMOTE_ADDR} !^103\.23\.
+    RewriteCond %{REMOTE_ADDR} !^103\.24\.
+    RewriteCond %{REMOTE_ADDR} !^103\.247\.
+    RewriteCond %{REMOTE_ADDR} !^103\.248\.
+    RewriteCond %{REMOTE_ADDR} !^103\.249\.
+    RewriteCond %{REMOTE_ADDR} !^103\.25\.
+    RewriteCond %{REMOTE_ADDR} !^103\.251\.
+    RewriteCond %{REMOTE_ADDR} !^103\.252\.
+    RewriteCond %{REMOTE_ADDR} !^103\.253\.
+    RewriteCond %{REMOTE_ADDR} !^103\.254\.
+    RewriteCond %{REMOTE_ADDR} !^103\.255\.
+    RewriteCond %{REMOTE_ADDR} !^103\.26\.
+    RewriteCond %{REMOTE_ADDR} !^103\.27\.
+    RewriteCond %{REMOTE_ADDR} !^103\.28\.
+    RewriteCond %{REMOTE_ADDR} !^103\.29\.
+    RewriteCond %{REMOTE_ADDR} !^103\.30\.
+    RewriteCond %{REMOTE_ADDR} !^103\.31\.
+    RewriteCond %{REMOTE_ADDR} !^103\.4\.
+    RewriteCond %{REMOTE_ADDR} !^103\.5\.
+    RewriteCond %{REMOTE_ADDR} !^103\.6\.
+    RewriteCond %{REMOTE_ADDR} !^103\.7\.
+    RewriteCond %{REMOTE_ADDR} !^103\.8\.
+    RewriteCond %{REMOTE_ADDR} !^103\.9\.
+    RewriteCond %{REMOTE_ADDR} !^110\.136\.
+    RewriteCond %{REMOTE_ADDR} !^110\.137\.
+    RewriteCond %{REMOTE_ADDR} !^110\.138\.
+    RewriteCond %{REMOTE_ADDR} !^110\.139\.
+    RewriteCond %{REMOTE_ADDR} !^111\.68\.
+    RewriteCond %{REMOTE_ADDR} !^111\.94\.
+    RewriteCond %{REMOTE_ADDR} !^111\.95\.
+    RewriteCond %{REMOTE_ADDR} !^112\.215\.
+    RewriteCond %{REMOTE_ADDR} !^114\.124\.
+    RewriteCond %{REMOTE_ADDR} !^114\.120\.
+    RewriteCond %{REMOTE_ADDR} !^114\.4\.
+    RewriteCond %{REMOTE_ADDR} !^114\.5\.
+    RewriteCond %{REMOTE_ADDR} !^114\.6\.
+    RewriteCond %{REMOTE_ADDR} !^114\.7\.
+    RewriteCond %{REMOTE_ADDR} !^114\.8\.
+    RewriteCond %{REMOTE_ADDR} !^114\.9\.
+    RewriteCond %{REMOTE_ADDR} !^115\.124\.
+    RewriteCond %{REMOTE_ADDR} !^115\.178\.
+    RewriteCond %{REMOTE_ADDR} !^116\.197\.
+    RewriteCond %{REMOTE_ADDR} !^116\.206\.
+    RewriteCond %{REMOTE_ADDR} !^116\.68\.
+    RewriteCond %{REMOTE_ADDR} !^117\.102\.
+    RewriteCond %{REMOTE_ADDR} !^118\.136\.
+    RewriteCond %{REMOTE_ADDR} !^118\.137\.
+    RewriteCond %{REMOTE_ADDR} !^118\.96\.
+    RewriteCond %{REMOTE_ADDR} !^119\.110\.
+    RewriteCond %{REMOTE_ADDR} !^119\.2\.
+    RewriteCond %{REMOTE_ADDR} !^120\.188\.
+    RewriteCond %{REMOTE_ADDR} !^120\.189\.
+    RewriteCond %{REMOTE_ADDR} !^120\.190\.
+    RewriteCond %{REMOTE_ADDR} !^120\.191\.
+    RewriteCond %{REMOTE_ADDR} !^123\.108\.
+    RewriteCond %{REMOTE_ADDR} !^124\.158\.
+    RewriteCond %{REMOTE_ADDR} !^125\.160\.
+    RewriteCond %{REMOTE_ADDR} !^125\.161\.
+    RewriteCond %{REMOTE_ADDR} !^125\.162\.
+    RewriteCond %{REMOTE_ADDR} !^125\.163\.
+    RewriteCond %{REMOTE_ADDR} !^125\.164\.
+    RewriteCond %{REMOTE_ADDR} !^125\.165\.
+    RewriteCond %{REMOTE_ADDR} !^125\.166\.
+    RewriteCond %{REMOTE_ADDR} !^139\.192\.
+    RewriteCond %{REMOTE_ADDR} !^139\.193\.
+    RewriteCond %{REMOTE_ADDR} !^139\.194\.
+    RewriteCond %{REMOTE_ADDR} !^139\.195\.
+    RewriteCond %{REMOTE_ADDR} !^139\.0\.
+    RewriteCond %{REMOTE_ADDR} !^140\.0\.
+    RewriteCond %{REMOTE_ADDR} !^140\.213\.
+    RewriteCond %{REMOTE_ADDR} !^146\.196\.
+    RewriteCond %{REMOTE_ADDR} !^149\.129\.
+    RewriteCond %{REMOTE_ADDR} !^150\.107\.
+    RewriteCond %{REMOTE_ADDR} !^152\.118\.
+    RewriteCond %{REMOTE_ADDR} !^157\.119\.
+    RewriteCond %{REMOTE_ADDR} !^158\.140\.
+    RewriteCond %{REMOTE_ADDR} !^161\.139\.
+    RewriteCond %{REMOTE_ADDR} !^163\.47\.
+    RewriteCond %{REMOTE_ADDR} !^167\.205\.
+    RewriteCond %{REMOTE_ADDR} !^169\.57\.
+    RewriteCond %{REMOTE_ADDR} !^170\.238\.
+    RewriteCond %{REMOTE_ADDR} !^171\.251\.
+    RewriteCond %{REMOTE_ADDR} !^173\.238\.
+    RewriteCond %{REMOTE_ADDR} !^175\.158\.
+    RewriteCond %{REMOTE_ADDR} !^175\.176\.
+    RewriteCond %{REMOTE_ADDR} !^177\.144\.
+    RewriteCond %{REMOTE_ADDR} !^177\.153\.
+    RewriteCond %{REMOTE_ADDR} !^177\.68\.
+    RewriteCond %{REMOTE_ADDR} !^178\.157\.
+    RewriteCond %{REMOTE_ADDR} !^179\.124\.
+    RewriteCond %{REMOTE_ADDR} !^179\.48\.
+    RewriteCond %{REMOTE_ADDR} !^179\.61\.
+    RewriteCond %{REMOTE_ADDR} !^180\.178\.
+    RewriteCond %{REMOTE_ADDR} !^180\.214\.
+    RewriteCond %{REMOTE_ADDR} !^180\.241\.
+    RewriteCond %{REMOTE_ADDR} !^180\.242\.
+    RewriteCond %{REMOTE_ADDR} !^180\.243\.
+    RewriteCond %{REMOTE_ADDR} !^180\.244\.
+    RewriteCond %{REMOTE_ADDR} !^180\.245\.
+    RewriteCond %{REMOTE_ADDR} !^180\.246\.
+    RewriteCond %{REMOTE_ADDR} !^180\.247\.
+    RewriteCond %{REMOTE_ADDR} !^180\.248\.
+    RewriteCond %{REMOTE_ADDR} !^180\.249\.
+    RewriteCond %{REMOTE_ADDR} !^180\.250\.
+    RewriteCond %{REMOTE_ADDR} !^180\.251\.
+    RewriteCond %{REMOTE_ADDR} !^180\.252\.
+    RewriteCond %{REMOTE_ADDR} !^180\.253\.
+    RewriteCond %{REMOTE_ADDR} !^182\.1\.
+    RewriteCond %{REMOTE_ADDR} !^182\.16\.
+    RewriteCond %{REMOTE_ADDR} !^182\.23\.
+    RewriteCond %{REMOTE_ADDR} !^182\.253\.
+    RewriteCond %{REMOTE_ADDR} !^182\.30\.
+    RewriteCond %{REMOTE_ADDR} !^202\.146\.
+    RewriteCond %{REMOTE_ADDR} !^202\.148\.
+    RewriteCond %{REMOTE_ADDR} !^202\.149\.
+    RewriteCond %{REMOTE_ADDR} !^202\.150\.
+    RewriteCond %{REMOTE_ADDR} !^202\.152\.
+    RewriteCond %{REMOTE_ADDR} !^202\.154\.
+    RewriteCond %{REMOTE_ADDR} !^202\.155\.
+    RewriteCond %{REMOTE_ADDR} !^202\.158\.
+    RewriteCond %{REMOTE_ADDR} !^202\.159\.
+    RewriteCond %{REMOTE_ADDR} !^202\.160\.
+    RewriteCond %{REMOTE_ADDR} !^202\.162\.
+    RewriteCond %{REMOTE_ADDR} !^202\.166\.
+    RewriteCond %{REMOTE_ADDR} !^202\.168\.
+    RewriteCond %{REMOTE_ADDR} !^202\.169\.
+    RewriteCond %{REMOTE_ADDR} !^202\.171\.
+    RewriteCond %{REMOTE_ADDR} !^202\.177\.
+    RewriteCond %{REMOTE_ADDR} !^202\.179\.
+    RewriteCond %{REMOTE_ADDR} !^202\.180\.
+    RewriteCond %{REMOTE_ADDR} !^202\.182\.
+    RewriteCond %{REMOTE_ADDR} !^203\.101\.
+    RewriteCond %{REMOTE_ADDR} !^203\.114\.
+    RewriteCond %{REMOTE_ADDR} !^203\.115\.
+    RewriteCond %{REMOTE_ADDR} !^203\.116\.
+    RewriteCond %{REMOTE_ADDR} !^203\.117\.
+    RewriteCond %{REMOTE_ADDR} !^203\.118\.
+    RewriteCond %{REMOTE_ADDR} !^203\.119\.
+    RewriteCond %{REMOTE_ADDR} !^203\.120\.
+    RewriteCond %{REMOTE_ADDR} !^203\.121\.
+    RewriteCond %{REMOTE_ADDR} !^203\.122\.
+    RewriteCond %{REMOTE_ADDR} !^203\.123\.
+    RewriteCond %{REMOTE_ADDR} !^203\.124\.
+    RewriteCond %{REMOTE_ADDR} !^203\.125\.
+    RewriteCond %{REMOTE_ADDR} !^203\.126\.
+    RewriteCond %{REMOTE_ADDR} !^203\.127\.
+    RewriteCond %{REMOTE_ADDR} !^203\.128\.
+    RewriteCond %{REMOTE_ADDR} !^203\.129\.
+    RewriteCond %{REMOTE_ADDR} !^203\.130\.
+    RewriteCond %{REMOTE_ADDR} !^203\.131\.
+    RewriteCond %{REMOTE_ADDR} !^203\.132\.
+    RewriteCond %{REMOTE_ADDR} !^203\.133\.
+    RewriteCond %{REMOTE_ADDR} !^203\.134\.
+    RewriteCond %{REMOTE_ADDR} !^203\.135\.
+    RewriteCond %{REMOTE_ADDR} !^203\.136\.
+    RewriteCond %{REMOTE_ADDR} !^203\.137\.
+    RewriteCond %{REMOTE_ADDR} !^203\.138\.
+    RewriteCond %{REMOTE_ADDR} !^203\.139\.
+    RewriteCond %{REMOTE_ADDR} !^203\.140\.
+    RewriteCond %{REMOTE_ADDR} !^203\.141\.
+    RewriteCond %{REMOTE_ADDR} !^203\.142\.
+    RewriteCond %{REMOTE_ADDR} !^203\.143\.
+    RewriteCond %{REMOTE_ADDR} !^203\.144\.
+    RewriteCond %{REMOTE_ADDR} !^203\.145\.
+    RewriteCond %{REMOTE_ADDR} !^203\.146\.
+    RewriteCond %{REMOTE_ADDR} !^203\.147\.
+    RewriteCond %{REMOTE_ADDR} !^203\.148\.
+    RewriteCond %{REMOTE_ADDR} !^203\.149\.
+    RewriteCond %{REMOTE_ADDR} !^203\.150\.
+    RewriteCond %{REMOTE_ADDR} !^203\.151\.
+    RewriteCond %{REMOTE_ADDR} !^203\.152\.
+    RewriteCond %{REMOTE_ADDR} !^203\.153\.
+    RewriteCond %{REMOTE_ADDR} !^203\.158\.
+    RewriteCond %{REMOTE_ADDR} !^203\.161\.
+    RewriteCond %{REMOTE_ADDR} !^203\.174\.
+    RewriteCond %{REMOTE_ADDR} !^203\.176\.
+    RewriteCond %{REMOTE_ADDR} !^203\.177\.
+    RewriteCond %{REMOTE_ADDR} !^203\.190\.
+    RewriteCond %{REMOTE_ADDR} !^203\.191\.
+    RewriteCond %{REMOTE_ADDR} !^203\.192\.
+    RewriteCond %{REMOTE_ADDR} !^203\.194\.
+    RewriteCond %{REMOTE_ADDR} !^203\.195\.
+    RewriteCond %{REMOTE_ADDR} !^203\.196\.
+    RewriteCond %{REMOTE_ADDR} !^203\.197\.
+    RewriteCond %{REMOTE_ADDR} !^203\.198\.
+    RewriteCond %{REMOTE_ADDR} !^203\.199\.
+    RewriteCond %{REMOTE_ADDR} !^203\.200\.
+    RewriteCond %{REMOTE_ADDR} !^203\.201\.
+    RewriteCond %{REMOTE_ADDR} !^203\.202\.
+    RewriteCond %{REMOTE_ADDR} !^203\.203\.
+    RewriteCond %{REMOTE_ADDR} !^203\.204\.
+    RewriteCond %{REMOTE_ADDR} !^203\.205\.
+    RewriteCond %{REMOTE_ADDR} !^203\.206\.
+    RewriteCond %{REMOTE_ADDR} !^203\.207\.
+    RewriteCond %{REMOTE_ADDR} !^203\.208\.
+    RewriteCond %{REMOTE_ADDR} !^203\.209\.
+    RewriteCond %{REMOTE_ADDR} !^203\.210\.
+    RewriteCond %{REMOTE_ADDR} !^203\.211\.
+    RewriteCond %{REMOTE_ADDR} !^203\.212\.
+    RewriteCond %{REMOTE_ADDR} !^203\.213\.
+    RewriteCond %{REMOTE_ADDR} !^203\.214\.
+    RewriteCond %{REMOTE_ADDR} !^203\.215\.
+    RewriteCond %{REMOTE_ADDR} !^203\.217\.
+    RewriteCond %{REMOTE_ADDR} !^203\.218\.
+    RewriteCond %{REMOTE_ADDR} !^203\.219\.
+    RewriteCond %{REMOTE_ADDR} !^203\.220\.
+    RewriteCond %{REMOTE_ADDR} !^203\.221\.
+    RewriteCond %{REMOTE_ADDR} !^203\.222\.
+    RewriteCond %{REMOTE_ADDR} !^203\.223\.
+    RewriteCond %{REMOTE_ADDR} !^210\.210\.
+    RewriteCond %{REMOTE_ADDR} !^210\.211\.
+    RewriteCond %{REMOTE_ADDR} !^210\.212\.
+    RewriteCond %{REMOTE_ADDR} !^210\.213\.
+    RewriteCond %{REMOTE_ADDR} !^210\.214\.
+    RewriteCond %{REMOTE_ADDR} !^210\.215\.
+    RewriteCond %{REMOTE_ADDR} !^210\.216\.
+    RewriteCond %{REMOTE_ADDR} !^210\.217\.
+    RewriteCond %{REMOTE_ADDR} !^210\.218\.
+    RewriteCond %{REMOTE_ADDR} !^210\.219\.
+    RewriteCond %{REMOTE_ADDR} !^210\.220\.
+    RewriteCond %{REMOTE_ADDR} !^210\.221\.
+    RewriteCond %{REMOTE_ADDR} !^210\.222\.
+    RewriteCond %{REMOTE_ADDR} !^210\.223\.
+    RewriteCond %{REMOTE_ADDR} !^210\.224\.
+    RewriteCond %{REMOTE_ADDR} !^210\.225\.
+    RewriteCond %{REMOTE_ADDR} !^210\.226\.
+    RewriteCond %{REMOTE_ADDR} !^210\.227\.
+    RewriteCond %{REMOTE_ADDR} !^210\.228\.
+    RewriteCond %{REMOTE_ADDR} !^210\.229\.
+    RewriteCond %{REMOTE_ADDR} !^210\.230\.
+    RewriteCond %{REMOTE_ADDR} !^210\.231\.
+    RewriteCond %{REMOTE_ADDR} !^210\.232\.
+    RewriteCond %{REMOTE_ADDR} !^210\.233\.
+    RewriteCond %{REMOTE_ADDR} !^210\.234\.
+    RewriteCond %{REMOTE_ADDR} !^210\.235\.
+    RewriteCond %{REMOTE_ADDR} !^210\.236\.
+    RewriteCond %{REMOTE_ADDR} !^210\.237\.
+    RewriteCond %{REMOTE_ADDR} !^210\.238\.
+    RewriteCond %{REMOTE_ADDR} !^210\.239\.
+    RewriteCond %{REMOTE_ADDR} !^210\.240\.
+    RewriteCond %{REMOTE_ADDR} !^210\.241\.
+    RewriteCond %{REMOTE_ADDR} !^210\.242\.
+    RewriteCond %{REMOTE_ADDR} !^210\.243\.
+    RewriteCond %{REMOTE_ADDR} !^210\.244\.
+    RewriteCond %{REMOTE_ADDR} !^210\.245\.
+    RewriteCond %{REMOTE_ADDR} !^210\.246\.
+    RewriteCond %{REMOTE_ADDR} !^210\.247\.
+    RewriteCond %{REMOTE_ADDR} !^210\.248\.
+    RewriteCond %{REMOTE_ADDR} !^210\.249\.
+    RewriteCond %{REMOTE_ADDR} !^210\.250\.
+    RewriteCond %{REMOTE_ADDR} !^210\.251\.
+    RewriteCond %{REMOTE_ADDR} !^210\.252\.
+    RewriteCond %{REMOTE_ADDR} !^210\.253\.
+    RewriteCond %{REMOTE_ADDR} !^210\.254\.
+    RewriteCond %{REMOTE_ADDR} !^210\.255\.
+    RewriteCond %{REMOTE_ADDR} !^211\.23\.
+    RewriteCond %{REMOTE_ADDR} !^211\.24\.
+    RewriteCond %{REMOTE_ADDR} !^211\.25\.
+    RewriteCond %{REMOTE_ADDR} !^211\.26\.
+    RewriteCond %{REMOTE_ADDR} !^211\.27\.
+    RewriteCond %{REMOTE_ADDR} !^211\.28\.
+    RewriteCond %{REMOTE_ADDR} !^211\.29\.
+    RewriteCond %{REMOTE_ADDR} !^211\.30\.
+    RewriteCond %{REMOTE_ADDR} !^211\.31\.
+    RewriteCond %{REMOTE_ADDR} !^211\.32\.
+    RewriteCond %{REMOTE_ADDR} !^211\.33\.
+    RewriteCond %{REMOTE_ADDR} !^211\.34\.
+    RewriteCond %{REMOTE_ADDR} !^211\.35\.
+    RewriteCond %{REMOTE_ADDR} !^211\.36\.
+    RewriteCond %{REMOTE_ADDR} !^211\.37\.
+    RewriteCond %{REMOTE_ADDR} !^211\.38\.
+    RewriteCond %{REMOTE_ADDR} !^211\.39\.
+    RewriteCond %{REMOTE_ADDR} !^211\.40\.
+    RewriteCond %{REMOTE_ADDR} !^211\.41\.
+    RewriteCond %{REMOTE_ADDR} !^211\.42\.
+    RewriteCond %{REMOTE_ADDR} !^211\.43\.
+    RewriteCond %{REMOTE_ADDR} !^211\.44\.
+    RewriteCond %{REMOTE_ADDR} !^211\.45\.
+    RewriteCond %{REMOTE_ADDR} !^211\.46\.
+    RewriteCond %{REMOTE_ADDR} !^211\.47\.
+    RewriteCond %{REMOTE_ADDR} !^211\.48\.
+    RewriteCond %{REMOTE_ADDR} !^211\.49\.
+    RewriteCond %{REMOTE_ADDR} !^211\.50\.
+    RewriteCond %{REMOTE_ADDR} !^211\.51\.
+    RewriteCond %{REMOTE_ADDR} !^211\.52\.
+    RewriteCond %{REMOTE_ADDR} !^211\.53\.
+    RewriteCond %{REMOTE_ADDR} !^211\.54\.
+    RewriteCond %{REMOTE_ADDR} !^211\.55\.
+    RewriteCond %{REMOTE_ADDR} !^211\.56\.
+    RewriteCond %{REMOTE_ADDR} !^211\.57\.
+    RewriteCond %{REMOTE_ADDR} !^211\.58\.
+    RewriteCond %{REMOTE_ADDR} !^211\.59\.
+    RewriteCond %{REMOTE_ADDR} !^211\.60\.
+    RewriteCond %{REMOTE_ADDR} !^211\.61\.
+    RewriteCond %{REMOTE_ADDR} !^211\.62\.
+    RewriteCond %{REMOTE_ADDR} !^211\.63\.
+    RewriteCond %{REMOTE_ADDR} !^211\.64\.
+    RewriteCond %{REMOTE_ADDR} !^211\.65\.
+    RewriteCond %{REMOTE_ADDR} !^211\.66\.
+    RewriteCond %{REMOTE_ADDR} !^211\.67\.
+    RewriteCond %{REMOTE_ADDR} !^211\.68\.
+    RewriteCond %{REMOTE_ADDR} !^211\.69\.
+    RewriteCond %{REMOTE_ADDR} !^211\.70\.
+    RewriteCond %{REMOTE_ADDR} !^211\.71\.
+    RewriteCond %{REMOTE_ADDR} !^211\.72\.
+    RewriteCond %{REMOTE_ADDR} !^211\.73\.
+    RewriteCond %{REMOTE_ADDR} !^211\.74\.
+    RewriteCond %{REMOTE_ADDR} !^211\.75\.
+    RewriteCond %{REMOTE_ADDR} !^211\.76\.
+    RewriteCond %{REMOTE_ADDR} !^211\.77\.
+    RewriteCond %{REMOTE_ADDR} !^211\.78\.
+    RewriteCond %{REMOTE_ADDR} !^211\.79\.
+    RewriteCond %{REMOTE_ADDR} !^211\.80\.
+    RewriteCond %{REMOTE_ADDR} !^211\.81\.
+    RewriteCond %{REMOTE_ADDR} !^211\.82\.
+    RewriteCond %{REMOTE_ADDR} !^211\.83\.
+    RewriteCond %{REMOTE_ADDR} !^211\.84\.
+    RewriteCond %{REMOTE_ADDR} !^211\.85\.
+    RewriteCond %{REMOTE_ADDR} !^211\.86\.
+    RewriteCond %{REMOTE_ADDR} !^211\.87\.
+    RewriteCond %{REMOTE_ADDR} !^211\.88\.
+    RewriteCond %{REMOTE_ADDR} !^211\.89\.
+    RewriteCond %{REMOTE_ADDR} !^211\.90\.
+    RewriteCond %{REMOTE_ADDR} !^211\.91\.
+    RewriteCond %{REMOTE_ADDR} !^211\.92\.
+    RewriteCond %{REMOTE_ADDR} !^211\.93\.
+    RewriteCond %{REMOTE_ADDR} !^211\.94\.
+    RewriteCond %{REMOTE_ADDR} !^211\.95\.
+    RewriteCond %{REMOTE_ADDR} !^211\.96\.
+    RewriteCond %{REMOTE_ADDR} !^211\.97\.
+    RewriteCond %{REMOTE_ADDR} !^211\.98\.
+    RewriteCond %{REMOTE_ADDR} !^211\.99\.
+    RewriteCond %{REMOTE_ADDR} !^211\.100\.
+    RewriteCond %{REMOTE_ADDR} !^211\.101\.
+    RewriteCond %{REMOTE_ADDR} !^211\.102\.
+    RewriteCond %{REMOTE_ADDR} !^211\.103\.
+    RewriteCond %{REMOTE_ADDR} !^211\.104\.
+    RewriteCond %{REMOTE_ADDR} !^211\.105\.
+    RewriteCond %{REMOTE_ADDR} !^211\.106\.
+    RewriteCond %{REMOTE_ADDR} !^211\.107\.
+    RewriteCond %{REMOTE_ADDR} !^211\.108\.
+    RewriteCond %{REMOTE_ADDR} !^211\.109\.
+    RewriteCond %{REMOTE_ADDR} !^211\.110\.
+    RewriteCond %{REMOTE_ADDR} !^211\.111\.
+    RewriteCond %{REMOTE_ADDR} !^218\.100\.
+    RewriteCond %{REMOTE_ADDR} !^218\.103\.
+    RewriteCond %{REMOTE_ADDR} !^219\.83\.
+    RewriteCond %{REMOTE_ADDR} !^220\.233\.
+    RewriteCond %{REMOTE_ADDR} !^222\.124\.
+    RewriteCond %{REMOTE_ADDR} !^222\.165\.
+    RewriteCond %{REMOTE_ADDR} !^223\.255\.
+    RewriteCond %{REMOTE_ADDR} !^27\.111\.
+    RewriteCond %{REMOTE_ADDR} !^27\.112\.
+    RewriteCond %{REMOTE_ADDR} !^27\.113\.
+    RewriteCond %{REMOTE_ADDR} !^27\.114\.
+    RewriteCond %{REMOTE_ADDR} !^27\.115\.
+    RewriteCond %{REMOTE_ADDR} !^27\.116\.
+    RewriteCond %{REMOTE_ADDR} !^27\.117\.
+    RewriteCond %{REMOTE_ADDR} !^27\.118\.
+    RewriteCond %{REMOTE_ADDR} !^27\.119\.
+    RewriteCond %{REMOTE_ADDR} !^27\.120\.
+    RewriteCond %{REMOTE_ADDR} !^27\.121\.
+    RewriteCond %{REMOTE_ADDR} !^27\.122\.
+    RewriteCond %{REMOTE_ADDR} !^27\.123\.
+    RewriteCond %{REMOTE_ADDR} !^27\.124\.
+    RewriteCond %{REMOTE_ADDR} !^27\.125\.
+    RewriteCond %{REMOTE_ADDR} !^27\.126\.
+    RewriteCond %{REMOTE_ADDR} !^27\.127\.
+    RewriteCond %{REMOTE_ADDR} !^27\.128\.
+    RewriteCond %{REMOTE_ADDR} !^27\.129\.
+    RewriteCond %{REMOTE_ADDR} !^27\.130\.
+    RewriteCond %{REMOTE_ADDR} !^27\.131\.
+    RewriteRule ^(.*)$ - [F,L]
+</IfModule>
+
+# ================= SECURITY HEADERS =================
+<IfModule mod_headers.c>
+    # Content Security Policy (CSP)
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://cdn-icons-png.flaticon.com; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+    
+    # X-Frame-Options - mencegah clickjacking
+    Header set X-Frame-Options "DENY"
+    
+    # X-Content-Type-Options - mencegah MIME sniffing
+    Header set X-Content-Type-Options "nosniff"
+    
+    # X-XSS-Protection - perlindungan XSS
+    Header set X-XSS-Protection "1; mode=block"
+    
+    # Referrer Policy
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Permissions Policy
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+    
+    # HSTS (HTTP Strict Transport Security) - hanya untuk HTTPS
+    Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # Cache Control untuk file statis
+    <FilesMatch "\.(css|js|jpg|jpeg|png|gif|ico|svg|webp)$">
+        Header set Cache-Control "public, max-age=2592000, immutable"
+    </FilesMatch>
+    
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+</IfModule>
+
+# ================= PHP SECURITY =================
+<IfModule mod_php7.c>
+    # Nonaktifkan fungsi berbahaya
+    php_flag allow_url_fopen Off
+    php_flag allow_url_include Off
+    php_flag display_errors Off
+    php_value max_execution_time 30
+    php_value memory_limit 128M
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+</IfModule>
+
+# ================= HINDARI DIRECTORY LISTING =================
+Options -Indexes
+
+# ================= PROTECT FILE SENSITIF =================
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "(\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)|~)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# ================= KOMPRESI GZIP =================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>

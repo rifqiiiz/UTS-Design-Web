@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bless Bakery - Showcase</title>
+    <link rel="stylesheet" href="bless.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="top-bar">
+            <span>Gratis Ongkir & Diskon 15% Untuk Pengguna Baru! Code: BLESSNEW</span>
+            <a href="#promo" class="btn-top">Belanja sekarang &gt;</a>
+        </div>
+
+        <div class="header-main">
+            <div class="logo">
+                <span class="logo-bless">bléss</span><br>
+                <span class="logo-bakery">bakery</span>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Cari produk...">
+                <span class="search-icon">🔍</span>
+            </div>
+            
+            <div class="nav-icons">
+                <a href="javascript:void(0)" id="wishlist-icon" class="wishlist-icon">
+                    ♡ <span id="wishlist-count" class="wishlist-count">0</span>
+                </a>
+                <a href="javascript:void(0)" id="user-icon">👤</a>
+                <a href="javascript:void(0)" id="cart-icon" style="position: relative;">
+                    🛒 <span id="cart-count" class="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+
+        <nav class="sub-nav">
+            <a href="#home" class="active">Beranda</a>
+            <a href="#produk">Produk</a>
+            <a href="#promo">Promo</a>
+            <a href="#about">Tentang Kami</a>
+            <a href="#contact">Hubungi Kami</a>
+            <a href="#testimoni">Testimoni</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero" style="background-image: url('image/homebgone.jpg');">
+            <div class="hero-overlay"></div>
+            <button class="slider-btn prev-btn">&lt;</button>
+            <div class="hero-content">
+                <p class="welcome-text">SELAMAT DATANG</p>
+                <h1 class="main-title">di <span class="italic-serif">Bless</span> Bakery</h1>
+                <h2 class="sub-title">Donat & Kue Manis</h2>
+                <p class="description">Warna-warni ceria untuk harimu</p>
+                <div class="hero-buttons">
+                    <a href="#produk" class="btn btn-primary-light">Lihat Produk &gt;</a>
+                    <a href="#about" class="btn btn-outline-light">Tentang Kami</a>
+                </div>
+            </div>
+            <button class="slider-btn next-btn">&gt;</button>
+            <div class="slider-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot active"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+        
+        <section id="promo" class="promo-specials">
+            <div class="section-header">
+                <h2>Promo <span>Spesial</span></h2>
+                <p>Penawaran terbaik dari Bless Bakery untuk Anda</p>
+            </div>
+            <div class="promo-grid">
+                <div class="promo-card">
+                    <div class="promo-content">
+                        <span class="promo-badge">-20% 🏷️</span>
+                        <h3>Diskon 20% Semua Roti</h3>
+                        <p>Berlaku untuk semua varian roti manis & tawar</p>
+                        <a href="#" class="btn-promo">Lihat Promo ></a>
+                    </div>
+                    <div class="promo-img-circle">
+                        <img src="image/product1.jpg" alt="Promo Roti">
+                    </div>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-content">
+                        <span class="promo-badge">2+1 🎁</span>
+                        <h3>Beli 2 Gratis 1</h3>
+                        <p>Promo bundle Donat Manis favorit semua kalangan</p>
+                        <a href="#" class="btn-promo">Lihat Promo ></a>
+                    </div>
+                    <div class="promo-img-circle">
+                        <img src="image/product2.jpg" alt="Promo Donat">
+                    </div>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-content">
+                        <span class="promo-badge">FREE 🚚</span>
+                        <h3>Gratis Ongkir</h3>
+                        <p>Min. belanja Rp 25.000 — pengiriman dalam kota</p>
+                        <a href="#" class="btn-promo">Lihat Promo ></a>
+                    </div>
+                    <div class="promo-img-circle">
+                        <img src="image/product4.jpg" alt="Promo Ongkir">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="produk" class="products">
+            <div class="section-header">
+                <h2>Produk <span>Populer</span></h2>
+                <p>Pilihan favorit pelanggan kami, dipanggang segar setiap hari</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <button class="wishlist-btn">♡</button>
+                    <img src="image/product1.jpg" alt="Cream Cheese Garlic Bread" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name-link">Cream Cheese Garlic Bread</h3>
+                        <div class="rating">★★★★★</div>
+                        <div class="price-row">
+                            <span class="price-tag">Rp 25.000</span>
+                            <button class="btn-add">🛒 Tambah</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <button class="wishlist-btn">♡</button>
+                    <img src="image/product2.jpg" alt="Donat Manis" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name-link">Donat Manis</h3>
+                        <div class="rating">★★★★★</div>
+                        <div class="price-row">
+                            <span class="price-tag">Rp 12.000</span>
+                            <button class="btn-add">🛒 Tambah</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <button class="wishlist-btn">♡</button>
+                    <img src="image/product3.jpg" alt="Bolen Pisang Keju" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name-link">Bolen Pisang Keju</h3>
+                        <div class="rating">★★★★★</div>
+                        <div class="price-row">
+                            <span class="price-tag">Rp 35.000</span>
+                            <button class="btn-add">🛒 Tambah</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <button class="wishlist-btn">♡</button>
+                    <img src="image/product4.jpg" alt="Croissant Butter" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name-link">Croissant Butter</h3>
+                        <div class="rating">★★★★★</div>
+                        <div class="price-row">
+                            <span class="price-tag">Rp 22.000</span>
+                            <button class="btn-add">🛒 Tambah</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <button class="wishlist-btn">♡</button>
+                    <img src="image/product5.jpg" alt="Bluder" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name-link">Bluder Premium</h3>
+                        <div class="rating">★★★★★</div>
+                        <div class="price-row">
+                            <span class="price-tag">Rp 15.000</span>
+                            <button class="btn-add">🛒 Tambah</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <button class="wishlist-btn">♡</button>
+                    <img src="image/product6.jpg" alt="Roti Isi Coklat" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name-link">Roti Isi Coklat</h3>
+                        <div class="rating">★★★★★</div>
+                        <div class="price-row">
+                            <span class="price-tag">Rp 10.000</span>
+                            <button class="btn-add">🛒 Tambah</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <button class="wishlist-btn">♡</button>
+                    <img src="image/product7.jpg" alt="Roti Isi Keju" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name-link">Roti Isi Keju</h3>
+                        <div class="rating">★★★★★</div>
+                        <div class="price-row">
+                            <span class="price-tag">Rp 11.000</span>
+                            <button class="btn-add">🛒 Tambah</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <button class="wishlist-btn">♡</button>
+                    <img src="image/product8.jpg" alt="Cake Ulang Tahun" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name-link">Cake Ulang Tahun</h3>
+                        <div class="rating">★★★★★</div>
+                        <div class="price-row">
+                            <span class="price-tag">Rp 180.000</span>
+                            <button class="btn-add">🛒 Tambah</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2>Tentang <span>Kami</span></h2>
+            <div class="about-container">
+                <div class="about-text">
+                    <p>Di Bless Bakery, kami percaya bahwa setiap gigitan roti harus membawa kebahagiaan. Memulai perjalanan sejak beberapa tahun lalu, kami terus menjaga tradisi memanggang roti setiap pagi untuk memastikan kesegaran yang sampai ke tangan Anda.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimoni" class="testimonial">
+            <h2>Apa Kata <span>Mereka?</span></h2>
+            <div class="testimonial-container">
+                <div class="testimonial-wrapper">
+                    <div class="testimonial-card active">
+                        <div class="testi-img">
+                            <img src="image/user1.jpeg" alt="User 1">
+                        </div>
+                        <div class="testi-content">
+                            <div class="stars">★★★★★</div>
+                            <p>"Rotinya lembut banget dan isian coklatnya melimpah! Favorit keluarga kalau sore-sore. Pengirimannya juga cepat."</p>
+                            <h4>Jamal Bieber</h4>
+                            <span>Pelanggan Setia</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testi-img">
+                            <img src="image/user2.jpeg" alt="User 2">
+                        </div>
+                        <div class="testi-content">
+                            <div class="stars">★★★★★</div>
+                            <p>"Garlic bread-nya juara! Cream cheese-nya nggak pelit. Sudah coba banyak bakery, tapi Bless Bakery yang paling cocok."</p>
+                            <h4>Martin Ismael</h4>
+                            <span>Food Vlogger</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testi-img">
+                            <img src="image/user3.jpeg" alt="User 3">
+                        </div>
+                        <div class="testi-content">
+                            <div class="stars">★★★★★</div>
+                            <p>"Custom cake untuk ulang tahun anak saya sangat cantik dan rasanya enak sekali, tidak terlalu manis, pas di lidah."</p>
+                            <h4>Minju </h4>
+                            <span>Ibu Rumah Tangga</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testi-controls">
+                    <button class="testi-prev">❮</button>
+                    <button class="testi-next">❯</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<footer id="contact" class="footer">
+    <div class="footer-content">
+        <h3>Bless Bakery</h3>
+        <p>Roti Segar, Penuh Berkat Setiap Hari</p>
+        
+        <!-- Social Media Section -->
+        <div class="social-media">
+            <h4>Ikuti Kami</h4>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/blessbakery.indo/" target="_blank" class="social-icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://facebook.com/blessbakery" target="_blank" class="social-icon facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://x.com/blessbakery" target="_blank" class="social-icon x">
+                    <i class="fab fa-x"></i>
+                </a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="social-icon whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-contact-info">
+            <p>
+                📍 
+                <a href="https://www.google.com/maps/place/Bless+Bakery+Madiun+Agus+Salim/@-7.6367555,111.5145923,17z/data=!3m1!4b1!4m6!3m5!1s0x2e79bf0714df222f:0x2cafd072bc265365!8m2!3d-7.6367555!4d111.5171672!16s%2Fg%2F11stvc1zdf?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="location-link">
+                    Jl. H. Agus Salim No. 130, Madiun
+                </a>
+            </p>
+            <p>
+                📍 
+                <a href="google.com/maps/place/Bless+Bakery+Kelapa+Manis,+Jalan+Kelapa+Manis,+Manisrejo,+Kota+Madiun,+Jawa+Timur/@-7.6165,111.5278,17z/data=!4m2!3m1!1s0x2e79be90cc80c0b5:0x26593c632f5d69cf?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="location-link">
+                    Jl. Kelapa Manis No. 16 A-B, Madiun
+                </a>
+            </p>
+            <p>📞 +62 812-3456-7890</p>
+            <p>📧 hello@blessbakery.com</p>
+            <p>🎁 Buka Setiap Hari: 08:00 - 21:00 WIB</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Bless Bakery. All rights reserved.</p>
+        <div class="footer-bottom-links">
+            <a href="#">Kebijakan Privasi</a>
+            <a href="#">Syarat & Ketentuan</a>
+            <a href="#">FAQ</a>
+        </div>
+    </div>
+</footer>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-img">
+                    <img id="modal-img-src" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modal-title"></h2>
+                    <p class="modal-price" id="modal-price"></p>
+                    <div class="rating">★★★★★</div>
+                    <p class="modal-desc" id="modal-desc">Produk ini dibuat dengan bahan berkualitas tinggi, dipanggang segar setiap hari untuk menjamin rasa yang autentik dan tekstur yang sempurna.</p>
+                    <button id="modal-add-btn" class="btn-add">🛒 Tambah ke Keranjang</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Keranjang Belanja</h3>
+            <span class="close-cart">&times;</span>
+        </div>
+        <div id="cart-items" class="cart-items-container">
+            </div>
+        <div class="cart-footer">
+            <div class="total-price">
+                <span>Total:</span>
+                <span id="cart-total">Rp 0</span>
+            </div>
+            <button class="btn-checkout">Checkout Sekarang</button>
+        </div>
+    </div>
+
+    <script src="bakery.js"></script>
+
+<!-- Login Modal -->
+<div id="login-modal" class="login-modal">
+    <div class="login-modal-content">
+        <span class="close-modal" style="position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; color: #888; z-index: 1;">&times;</span>
+        <div class="login-header">
+            <h2>Selamat Datang Kembali!</h2>
+            <p>Login untuk mendapatkan pengalaman berbelanja lebih baik</p>
+        </div>
+        <form id="login-form">
+            <div class="login-form-group">
+                <label>Email</label>
+                <input type="email" id="login-email" placeholder="Masukkan email Anda" required>
+                <div class="error-message" id="email-error"></div>
+            </div>
+            <div class="login-form-group">
+                <label>Password</label>
+                <input type="password" id="login-password" placeholder="Masukkan password" required>
+                <div class="error-message" id="password-error"></div>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+        <div class="login-footer">
+            <p>Belum punya akun? <a href="#" id="register-link">Daftar Sekarang</a></p>
+        </div>
+    </div>
+</div>
+
+<!-- Register Modal -->
+<div id="register-modal" class="login-modal">
+    <div class="login-modal-content">
+        <span class="close-modal" style="position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; color: #888; z-index: 1;">&times;</span>
+        <div class="login-header">
+            <h2>Daftar Akun Baru</h2>
+            <p>Bergabunglah dengan Bless Bakery</p>
+        </div>
+        <form id="register-form">
+            <div class="login-form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" id="reg-name" placeholder="Masukkan nama lengkap" required>
+            </div>
+            <div class="login-form-group">
+                <label>Email</label>
+                <input type="email" id="reg-email" placeholder="Masukkan email" required>
+            </div>
+            <div class="login-form-group">
+                <label>Password</label>
+                <input type="password" id="reg-password" placeholder="Minimal 6 karakter" required>
+            </div>
+            <div class="login-form-group">
+                <label>Konfirmasi Password</label>
+                <input type="password" id="reg-confirm-password" placeholder="Konfirmasi password" required>
+            </div>
+            <button type="submit" class="login-btn">Daftar</button>
+        </form>
+        <div class="login-footer">
+            <p>Sudah punya akun? <a href="#" id="login-link">Login Sekarang</a></p>
+        </div>
+    </div>
+</div>
+<!-- Wishlist Sidebar -->
+<div id="wishlist-sidebar" class="wishlist-sidebar">
+    <div class="wishlist-header">
+        <h3>❤️ Wishlist Saya</h3>
+        <span class="close-wishlist">&times;</span>
+    </div>
+    <div id="wishlist-items" class="wishlist-items-container">
+        <!-- Wishlist items akan muncul di sini -->
+    </div>
+    <div class="wishlist-footer">
+        <button id="add-all-to-cart" class="btn-add-all">+ Tambahkan Semua ke Keranjang</button>
+    </div>
+</div>
+<!-- Wishlist Sidebar -->
+<div id="wishlist-sidebar" class="wishlist-sidebar">
+    <div class="wishlist-header">
+        <h3>❤️ Wishlist Saya</h3>
+        <span class="close-wishlist">&times;</span>
+    </div>
+    <div id="wishlist-items" class="wishlist-items-container"></div>
+    <div class="wishlist-footer">
+        <button id="add-all-to-cart" class="btn-add-all">+ Tambahkan Semua ke Keranjang</button>
+    </div>
+</div>
+</body>
+</html>

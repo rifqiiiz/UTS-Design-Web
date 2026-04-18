@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran Berhasil - Bless Bakery</title>
+    <link rel="stylesheet" href="bless.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <style>
+        .success-container {
+            max-width: 600px;
+            margin: 120px auto 80px;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .success-card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: scaleIn 0.5s ease-out 0.3s both;
+        }
+        
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+        
+        .success-icon svg {
+            width: 60px;
+            height: 60px;
+            color: white;
+        }
+        
+        .success-card h1 {
+            color: var(--primary-green);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .success-card .order-id {
+            background: var(--beige);
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin: 20px 0;
+            font-weight: 600;
+            color: var(--primary-green);
+        }
+        
+        .order-details {
+            text-align: left;
+            background: var(--beige);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .order-details h3 {
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .order-details p {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .order-details .total {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary-custom {
+            background: var(--primary-green);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-primary-custom:hover {
+            background: var(--light-green);
+        }
+        
+        .btn-secondary-custom {
+            background: transparent;
+            color: var(--primary-green);
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--primary-green);
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-secondary-custom:hover {
+            background: var(--primary-green);
+            color: white;
+        }
+        
+        .countdown {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+            color: #888;
+        }
+        
+        @media (max-width: 768px) {
+            .success-card {
+                padding: 30px 20px;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            .btn-primary-custom, .btn-secondary-custom {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <span>Gratis Ongkir & Diskon 15% Untuk Pengguna Baru! Code: BLESSNEW</span>
+            <a href="index.html#promo" class="btn-top">Belanja sekarang &gt;</a>
+        </div>
+
+        <div class="header-main">
+            <div class="logo">
+                <span class="logo-bless">bléss</span><br>
+                <span class="logo-bakery">bakery</span>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Cari produk...">
+                <span class="search-icon">🔍</span>
+            </div>
+            
+            <div class="nav-icons">
+                <a href="#">♡</a>
+                <a href="#">👤</a>
+                <a href="index.html">🛒</a>
+            </div>
+        </div>
+
+        <nav class="sub-nav">
+            <a href="index.html#home">Beranda</a>
+            <a href="index.html#produk">Produk</a>
+            <a href="index.html#promo">Promo</a>
+            <a href="index.html#about">Tentang Kami</a>
+            <a href="index.html#contact">Hubungi Kami</a>
+            <a href="index.html#testimoni">Testimoni</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="success-container">
+            <div class="success-card">
+                <div class="success-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+                
+                <h1>Pembayaran Berhasil! 🎉</h1>
+                <p>Terima kasih telah berbelanja di Bless Bakery</p>
+                
+                <div class="order-id" id="order-id-display">
+                    Memuat...
+                </div>
+                
+                <div class="order-details" id="order-details">
+                    <h3>Detail Pesanan</h3>
+                    <div id="order-info">Memuat data pesanan...</div>
+                </div>
+                
+                <div class="btn-group">
+                    <a href="index.html" class="btn-primary-custom">🛍️ Lanjut Belanja</a>
+                    <a href="index.html#produk" class="btn-secondary-custom">📋 Lihat Produk Lain</a>
+                </div>
+                
+                <div class="countdown" id="countdown">
+                    Halaman akan mengarahkan ke beranda dalam <span id="timer">10</span> detik
+                </div>
+            </div>
+        </div>
+    </main>
+
+<footer id="contact" class="footer">
+    <div class="footer-content">
+        <h3>Bless Bakery</h3>
+        <p>Roti Segar, Penuh Berkat Setiap Hari</p>
+        
+        <!-- Social Media Section -->
+        <div class="social-media">
+            <h4>Ikuti Kami</h4>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/blessbakery.indo/" target="_blank" class="social-icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://facebook.com/blessbakery" target="_blank" class="social-icon facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://x.com/blessbakery" target="_blank" class="social-icon x">
+                    <i class="fab fa-x"></i>
+                </a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="social-icon whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-contact-info">
+            <p>
+                📍 
+                <a href="https://www.google.com/maps/place/Bless+Bakery+Madiun+Agus+Salim/@-7.6367555,111.5145923,17z/data=!3m1!4b1!4m6!3m5!1s0x2e79bf0714df222f:0x2cafd072bc265365!8m2!3d-7.6367555!4d111.5171672!16s%2Fg%2F11stvc1zdf?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="location-link">
+                    Jl. H. Agus Salim No. 130, Madiun
+                </a>
+            </p>
+            <p>
+                📍 
+                <a href="google.com/maps/place/Bless+Bakery+Kelapa+Manis,+Jalan+Kelapa+Manis,+Manisrejo,+Kota+Madiun,+Jawa+Timur/@-7.6165,111.5278,17z/data=!4m2!3m1!1s0x2e79be90cc80c0b5:0x26593c632f5d69cf?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="location-link">
+                    Jl. Kelapa Manis No. 16 A-B, Madiun
+                </a>
+            </p>
+            <p>📞 +62 812-3456-7890</p>
+            <p>📧 hello@blessbakery.com</p>
+            <p>🎁 Buka Setiap Hari: 08:00 - 21:00 WIB</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Bless Bakery. All rights reserved.</p>
+        <div class="footer-bottom-links">
+            <a href="#">Kebijakan Privasi</a>
+            <a href="#">Syarat & Ketentuan</a>
+            <a href="#">FAQ</a>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // Ambil data pesanan dari localStorage
+        const orderData = JSON.parse(localStorage.getItem('currentOrder'));
+        
+        if (!orderData) {
+            // Jika tidak ada data pesanan, redirect ke index
+            window.location.href = 'index.html';
+        }
+        
+        // Tampilkan order ID
+        document.getElementById('order-id-display').innerHTML = `Kode Pesanan: ${orderData.orderId}`;
+        
+        // Tampilkan detail pesanan
+        const orderInfo = document.getElementById('order-info');
+        orderInfo.innerHTML = `
+            <p><strong>Nama:</strong> ${orderData.customer.fullname}</p>
+            <p><strong>Telepon:</strong> ${orderData.customer.phone}</p>
+            <p><strong>Alamat:</strong> ${orderData.customer.address}, ${orderData.customer.city}, ${orderData.customer.zipcode}</p>
+            <p><strong>Metode Pembayaran:</strong> ${getPaymentMethodName(orderData.paymentMethod)}</p>
+            <p><strong>Jumlah Item:</strong> ${orderData.items.reduce((sum, item) => sum + item.qty, 0)} produk</p>
+            <div class="total">
+                <strong>Total Pembayaran:</strong> Rp ${orderData.total.toLocaleString()}
+            </div>
+        `;
+        
+        function getPaymentMethodName(method) {
+            const methods = {
+                'bank': 'Bank Transfer',
+                'cod': 'COD (Bayar di Tempat)'
+            };
+            return methods[method] || method;
+        }
+        
+        // Countdown redirect
+        let seconds = 10;
+        const timerElement = document.getElementById('timer');
+        
+        const countdownInterval = setInterval(() => {
+            seconds--;
+            timerElement.textContent = seconds;
+            
+            if (seconds <= 0) {
+                clearInterval(countdownInterval);
+                // Hapus data pesanan setelah ditampilkan
+                localStorage.removeItem('currentOrder');
+                window.location.href = 'index.html';
+            }
+        }, 1000);
+        
+        // Hentikan countdown jika user berinteraksi dengan tombol
+        const buttons = document.querySelectorAll('.btn-primary-custom, .btn-secondary-custom');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                clearInterval(countdownInterval);
+                localStorage.removeItem('currentOrder');
+            });
+        });
+    </script>
+</body>
+</html>
