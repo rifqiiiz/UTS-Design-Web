@@ -1509,3 +1509,15 @@ header {
         height: 18px;
     }
 }
+
+.bank-logo-mini {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.payment-method small {
+    display: block;
+    font-size: 10px;
+    color: #888;
+    margin-top: 3px;
+}

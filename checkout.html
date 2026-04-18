@@ -180,16 +180,22 @@
             background: rgba(74, 93, 69, 0.05);
         }
         
-        .payment-method img {
-            width: 40px;
-            height: 40px;
+        .bank-logo-mini {
+            font-size: 32px;
             margin-bottom: 8px;
         }
         
         .payment-method span {
             display: block;
-            font-size: 12px;
-            font-weight: 500;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .payment-method small {
+            display: block;
+            font-size: 10px;
+            color: #888;
+            margin-top: 5px;
         }
         
         .btn-place-order {
@@ -230,6 +236,10 @@
             .form-row {
                 grid-template-columns: 1fr;
             }
+            
+            .payment-methods {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -252,9 +262,9 @@
             </div>
             
             <div class="nav-icons">
-                <a href="#">♡</a>
-                <a href="#">👤</a>
-                <a href="index.html" style="position: relative;">🛒</a>
+                <a href="index.html">♡</a>
+                <a href="index.html">👤</a>
+                <a href="index.html">🛒</a>
             </div>
         </div>
 
@@ -263,6 +273,7 @@
             <a href="index.html#produk">Produk</a>
             <a href="index.html#promo">Promo</a>
             <a href="index.html#about">Tentang Kami</a>
+            <a href="index.html#locations">Lokasi</a>
             <a href="index.html#contact">Hubungi Kami</a>
             <a href="index.html#testimoni">Testimoni</a>
         </nav>
@@ -330,16 +341,35 @@
                         </div>
                         
                         <h3 style="margin-top: 20px;">Metode Pembayaran</h3>
-                        <div class="payment-methods">
-                            <div class="payment-method" data-method="bank">
-                                <img src="https://static.vecteezy.com/system/resources/thumbnails/012/696/665/small_2x/atm-card-icon-free-free-vector.jpg" alt="Bank Transfer">
-                                <span>Transfer Bank</span>
+                            <div class="payment-methods">
+                        <div class="payment-method" data-method="bank">
+                            <div class="bank-logo-mini">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="2" y="6" width="20" height="14" rx="2" stroke="#4a5d45" stroke-width="1.5" fill="white"/>
+                                    <path d="M2 10H22" stroke="#4a5d45" stroke-width="1.5"/>
+                                    <path d="M7 13H9" stroke="#4a5d45" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M12 13H17" stroke="#4a5d45" stroke-width="1.5" stroke-linecap="round"/>
+                                    <circle cx="17" cy="16" r="1.5" fill="#4a5d45"/>
+                                </svg>
                             </div>
-                            <div class="payment-method" data-method="cod">
-                                <img src="https://cdn.shopify.com/app-store/listing_images/cc2affba217a6ed762d7cb7369d98cd0/icon/COCQnY-5mI8DEAE=.png" alt="COD">
-                                <span>COD</span>
-                            </div>
+                            <span>Transfer Bank</span>
+                            <small>BCA Virtual Account</small>
                         </div>
+                        <div class="payment-method" data-method="cod">
+                            <div class="bank-logo-mini">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="3" y="8" width="18" height="13" rx="2" stroke="#4a5d45" stroke-width="1.5" fill="white"/>
+                                    <path d="M5 8L12 3L19 8" stroke="#4a5d45" stroke-width="1.5" fill="white"/>
+                                    <circle cx="8" cy="14" r="1.5" fill="#4a5d45"/>
+                                    <circle cx="16" cy="14" r="1.5" fill="#4a5d45"/>
+                                    <path d="M7 18H17" stroke="#4a5d45" stroke-width="1.5" stroke-linecap="round"/>
+                                    <rect x="9" y="11" width="6" height="4" stroke="#4a5d45" stroke-width="1" fill="none"/>
+                                </svg>
+                            </div>
+                            <span>COD</span>
+                            <small>Bayar di Tempat</small>
+                        </div>
+                    </div>
                         <input type="hidden" id="payment-method" value="bank">
                         
                         <button type="submit" class="btn-place-order">Buat Pesanan</button>
@@ -351,60 +381,22 @@
         </div>
     </main>
 
-<footer id="contact" class="footer">
-    <div class="footer-content">
-        <h3>Bless Bakery</h3>
-        <p>Roti Segar, Penuh Berkat Setiap Hari</p>
-        
-        <!-- Social Media Section - SVG Icons -->
-        <div class="social-media">
-            <h4>Ikuti Kami</h4>
-            <div class="social-icons">
-                <!-- Instagram -->
-                <a href="https://www.instagram.com/blessbakery.indo/" target="_blank" class="social-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
-                    </svg>
-                </a>
-                <!-- Facebook -->
-                <a href="https://facebook.com/blessbakery" target="_blank" class="social-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
-                    </svg>
-                </a>
-                <!-- Twitter/X -->
-                <a href="https://twitter.com/blessbakery" target="_blank" class="social-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                    </svg>
-                </a>
-                <!-- WhatsApp -->
-                <a href="https://wa.me/6281234567890" target="_blank" class="social-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.174.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.019-.458.13-.606.134-.132.297-.347.446-.521.149-.174.198-.298.297-.496.099-.198.05-.372-.025-.521-.074-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.01-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                    </svg>
-                </a>
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Bless Bakery</h3>
+            <p>Roti Segar, Penuh Berkat Setiap Hari</p>
+            <div class="footer-contact-info">
+                <p>📍 Jl. H. Agus Salim No. 130, Madiun</p>
+                <p>📍 Jl. Kelapa Manis No. 16 A-B, Madiun</p>
+                <p>📞 +62 812-3456-7890</p>
+                <p>📧 hello@blessbakery.com</p>
+                <p>🎁 Buka Setiap Hari: 08:00 - 21:00 WIB</p>
             </div>
         </div>
-        
-        <!-- Contact Info -->
-        <div class="footer-contact-info">
-            <p>📍 Jl. H. Agus Salim No. 130, Madiun</p>
-            <p>📍 Jl. Kelapa Manis No. 16 A-B, Madiun</p>
-            <p>📞 +62 812-3456-7890</p>
-            <p>📧 hello@blessbakery.com</p>
-            <p>🎁 Buka Setiap Hari: 08:00 - 21:00 WIB</p>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Bless Bakery. All rights reserved.</p>
         </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2026 Bless Bakery. All rights reserved.</p>
-        <div class="footer-bottom-links">
-            <a href="#">Kebijakan Privasi</a>
-            <a href="#">Syarat & Ketentuan</a>
-            <a href="#">FAQ</a>
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <script>
         // Ambil data cart dari localStorage
@@ -462,53 +454,58 @@
             });
         });
         
-            // Submit checkout
-            const checkoutForm = document.getElementById('checkout-form');
-            checkoutForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                // Validasi form
-                const fullname = document.getElementById('fullname').value;
-                const phone = document.getElementById('phone').value;
-                const email = document.getElementById('email').value;
-                const address = document.getElementById('address').value;
-                const city = document.getElementById('city').value;
-                const zipcode = document.getElementById('zipcode').value;
-                
-                if (!fullname || !phone || !email || !address || !city || !zipcode) {
-                    alert('Harap lengkapi semua data!');
-                    return;
-                }
-                
-                // Simpan data pesanan
-                const paymentMethod = document.getElementById('payment-method').value;
-                const orderData = {
-                    orderId: 'BLESS-' + Date.now(),
-                    customer: { fullname, phone, email, address, city, zipcode },
-                    items: cart,
-                    paymentMethod: paymentMethod,
-                    subtotal: parseInt(document.getElementById('subtotal').innerHTML.replace(/[^0-9]/g, '')),
-                    shipping: 10000,
-                    tax: parseInt(document.getElementById('tax').innerHTML.replace(/[^0-9]/g, '')),
-                    total: parseInt(document.getElementById('total-amount').innerHTML.replace(/[^0-9]/g, '')),
-                    orderDate: new Date().toISOString(),
-                    paymentStatus: 'pending'
-                };
-                
-                localStorage.setItem('currentOrder', JSON.stringify(orderData));
-                
-                // Kosongkan cart
-                localStorage.setItem('blessCart', JSON.stringify([]));
-                
-                // Redirect berdasarkan metode pembayaran
-                if (paymentMethod === 'bank') {
-                    // Untuk transfer bank, redirect ke halaman virtual account
-                    window.location.href = 'payment-transfer.html';
-                } else {
-                    // Untuk QRIS dan COD, langsung ke halaman sukses
-                    window.location.href = 'payment-success.html';
-                }
-            });
+        // Submit checkout
+        const checkoutForm = document.getElementById('checkout-form');
+        checkoutForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Validasi form
+            const fullname = document.getElementById('fullname').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const zipcode = document.getElementById('zipcode').value;
+            
+            if (!fullname || !phone || !email || !address || !city || !zipcode) {
+                alert('Harap lengkapi semua data!');
+                return;
+            }
+            
+            // Validasi nomor telepon
+            if (phone.length < 10) {
+                alert('Nomor telepon tidak valid!');
+                return;
+            }
+            
+            // Simpan data pesanan
+            const paymentMethod = document.getElementById('payment-method').value;
+            const subtotal = parseInt(document.getElementById('subtotal').innerHTML.replace(/[^0-9]/g, ''));
+            const shipping = 10000;
+            const tax = parseInt(document.getElementById('tax').innerHTML.replace(/[^0-9]/g, ''));
+            const total = parseInt(document.getElementById('total-amount').innerHTML.replace(/[^0-9]/g, ''));
+            
+            const orderData = {
+                orderId: 'BLESS-' + Date.now(),
+                customer: { fullname, phone, email, address, city, zipcode },
+                items: cart,
+                paymentMethod: paymentMethod,
+                subtotal: subtotal,
+                shipping: shipping,
+                tax: tax,
+                total: total,
+                orderDate: new Date().toISOString(),
+                paymentStatus: 'pending'
+            };
+            
+            localStorage.setItem('currentOrder', JSON.stringify(orderData));
+            
+            // Kosongkan cart
+            localStorage.setItem('blessCart', JSON.stringify([]));
+            
+            // Redirect ke halaman pembayaran
+            window.location.href = 'payment-transfer.html';
+        });
         
         // Tampilkan data
         displayCheckoutItems();

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pembayaran Transfer Bank - Bless Bakery</title>
+    <title>Pembayaran - Bless Bakery</title>
     <link rel="stylesheet" href="bless.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
     <style>
@@ -70,14 +70,15 @@
         }
         
         .bank-logo {
-            width: 50px;
-            height: 50px;
-            background: #fff;
-            border-radius: 10px;
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 32px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         
         .bank-name h3 {
@@ -176,6 +177,14 @@
         
         .instruction li {
             margin: 8px 0;
+        }
+        
+        .cod-instruction {
+            background: #fff3e0;
+        }
+        
+        .cod-instruction h4 {
+            color: var(--accent-color);
         }
         
         .timer-section {
@@ -281,36 +290,35 @@
         <div class="payment-container">
             <div class="payment-card">
                 <div class="payment-header">
-                    <div class="icon">🏦</div>
-                    <h1>Pembayaran Transfer Bank</h1>
-                    <p>Silakan lakukan pembayaran ke Virtual Account berikut</p>
+                    <div class="icon" id="payment-icon">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="6" width="20" height="14" rx="2" stroke="#4a5d45" stroke-width="1.5" fill="white"/>
+                            <path d="M2 10H22" stroke="#4a5d45" stroke-width="1.5"/>
+                            <path d="M7 13H9" stroke="#4a5d45" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M12 13H17" stroke="#4a5d45" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="17" cy="16" r="1.5" fill="#4a5d45"/>
+                        </svg>
+                    </div>
+                    <h1 id="payment-title">Transfer Bank</h1>
+                    <p id="payment-subtitle">Silakan transfer ke Virtual Account berikut</p>
                 </div>
-
                 <div class="bank-info" id="bank-info">
                     <!-- Bank info akan diisi oleh JS -->
                 </div>
 
-                <div class="timer-section">
+                <div class="timer-section" id="timer-section">
                     <p>⏰ Selesaikan pembayaran sebelum:</p>
                     <div class="timer" id="timer">24:00:00</div>
                     <p style="font-size: 12px; margin-top: 8px;">Pesanan akan dibatalkan jika melewati batas waktu</p>
                 </div>
 
-                <div class="instruction">
-                    <h4>📝 Cara Pembayaran:</h4>
-                    <ol>
-                        <li>Buka aplikasi mobile banking atau internet banking Anda</li>
-                        <li>Pilih menu <strong>Transfer</strong> → <strong>Virtual Account</strong></li>
-                        <li>Masukkan <strong>Nomor Virtual Account</strong> di atas</li>
-                        <li>Konfirmasi nominal tagihan: <strong id="confirm-amount">Rp 0</strong></li>
-                        <li>Ikuti instruksi hingga transaksi berhasil</li>
-                        <li>Klik tombol <strong>"Konfirmasi Pembayaran"</strong> setelah transfer</li>
-                    </ol>
+                <div class="instruction" id="instruction">
+                    <!-- Instruction akan diisi oleh JS -->
                 </div>
 
                 <button class="btn-confirm" id="confirm-payment">✅ Konfirmasi Pembayaran</button>
                 <a href="checkout.html" class="btn-back">← Kembali ke Checkout</a>
-                <div class="payment-note">
+                <div class="payment-note" id="payment-note">
                     * Pastikan Anda transfer sesuai dengan nominal tagihan<br>
                     * Pembayaran akan diproses dalam 1x24 jam
                 </div>
@@ -344,36 +352,40 @@
             window.location.href = 'index.html';
         }
         
-        // Data bank (Virtual Account)
-        const banks = {
-            'bank': {
-                name: 'Bank Central Asia (BCA)',
-                logo: '🏦',
-                va: '8888' + orderData.orderId.replace('BLESS-', '').slice(0, 12),
-                code: 'BCA'
-            },
-            'cod': {
-                name: 'Cash on Delivery',
-                logo: '💵',
-                va: 'Bayar di Tempat',
-                code: 'COD'
-            }
-        };
+        const paymentMethod = orderData.paymentMethod;
         
-        // Pilih bank sesuai metode pembayaran
-        const selectedBank = banks[orderData.paymentMethod] || banks['bank'];
-        
-        // Generate VA Number
-        const vaNumber = selectedBank.va;
-        
-        // Tampilkan informasi bank
+        // Update UI berdasarkan metode pembayaran
+        const paymentIcon = document.getElementById('payment-icon');
+        const paymentTitle = document.getElementById('payment-title');
+        const paymentSubtitle = document.getElementById('payment-subtitle');
         const bankInfoDiv = document.getElementById('bank-info');
-        if (orderData.paymentMethod === 'bank') {
+        const instructionDiv = document.getElementById('instruction');
+        const timerSection = document.getElementById('timer-section');
+        const paymentNote = document.getElementById('payment-note');
+        
+        // Generate VA Number dari Order ID
+        const vaNumber = '8888' + orderData.orderId.replace('BLESS-', '').slice(0, 12);
+        
+        if (paymentMethod === 'bank') {
+            // TAMPILAN TRANSFER BANK
+            paymentIcon.innerHTML = '💳';
+            paymentTitle.innerHTML = 'Transfer Bank';
+            paymentSubtitle.innerHTML = 'Silakan transfer ke Virtual Account berikut';
+            
             bankInfoDiv.innerHTML = `
                 <div class="bank-header">
-                    <div class="bank-logo">${selectedBank.logo}</div>
+                    <div class="bank-logo">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="6" width="20" height="14" rx="2" stroke="#4a5d45" stroke-width="1.5" fill="white"/>
+                            <path d="M2 10H22" stroke="#4a5d45" stroke-width="1.5"/>
+                            <path d="M7 13H9" stroke="#4a5d45" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M12 13H17" stroke="#4a5d45" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="17" cy="16" r="1.5" fill="#4a5d45"/>
+                            <text x="12" y="20" font-size="4" fill="#4a5d45" text-anchor="middle">ATM</text>
+                        </svg>
+                    </div>
                     <div class="bank-name">
-                        <h3>${selectedBank.name}</h3>
+                        <h3>Bank Central Asia (BCA)</h3>
                         <p>Virtual Account</p>
                     </div>
                 </div>
@@ -390,62 +402,122 @@
                         <span>Rp ${orderData.total.toLocaleString()}</span>
                     </div>
                     <div class="amount-row total">
-                        <span>Total yang harus dibayar</span>
+                        <span>Total yang harus ditransfer</span>
                         <span>Rp ${orderData.total.toLocaleString()}</span>
                     </div>
                 </div>
             `;
-        } else {
+            
+            instructionDiv.innerHTML = `
+                <h4>📝 Cara Pembayaran Transfer Bank:</h4>
+                <ol>
+                    <li>Buka aplikasi <strong>mobile banking</strong> atau <strong>internet banking</strong> BCA</li>
+                    <li>Pilih menu <strong>Transfer</strong> → <strong>Virtual Account</strong></li>
+                    <li>Masukkan <strong>Nomor Virtual Account</strong> di atas: <strong>${vaNumber}</strong></li>
+                    <li>Konfirmasi nominal tagihan: <strong>Rp ${orderData.total.toLocaleString()}</strong></li>
+                    <li>Masukkan <strong>PIN / Password</strong> untuk menyelesaikan transaksi</li>
+                    <li>Simpan <strong>bukti transfer</strong> sebagai referensi</li>
+                    <li>Klik tombol <strong>"Konfirmasi Pembayaran"</strong> setelah transfer berhasil</li>
+                </ol>
+            `;
+            
+            paymentNote.innerHTML = `
+                * Pastikan Anda transfer sesuai dengan nominal tagihan<br>
+                * Pembayaran akan diproses dalam 1x24 jam<br>
+                * Nomor VA hanya valid untuk pesanan ini
+            `;
+            
+        } else if (paymentMethod === 'cod') {
+            // TAMPILAN COD
+            paymentIcon.innerHTML = '🚚';
+            paymentTitle.innerHTML = 'COD (Cash on Delivery)';
+            paymentSubtitle.innerHTML = 'Bayar saat pesanan tiba di tempat Anda';
+            
             bankInfoDiv.innerHTML = `
                 <div class="bank-header">
-                    <div class="bank-logo">${selectedBank.logo}</div>
+                    <div class="bank-logo">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="8" width="18" height="13" rx="2" stroke="#4a5d45" stroke-width="1.5" fill="white"/>
+                            <path d="M5 8L12 3L19 8" stroke="#4a5d45" stroke-width="1.5" fill="white"/>
+                            <circle cx="8" cy="14" r="1.5" fill="#4a5d45"/>
+                            <circle cx="16" cy="14" r="1.5" fill="#4a5d45"/>
+                            <path d="M7 18H17" stroke="#4a5d45" stroke-width="1.5" stroke-linecap="round"/>
+                            <rect x="9" y="11" width="6" height="4" stroke="#4a5d45" stroke-width="1" fill="none"/>
+                            <text x="12" y="22" font-size="3.5" fill="#4a5d45" text-anchor="middle">COD</text>
+                        </svg>
+                    </div>
                     <div class="bank-name">
-                        <h3>${selectedBank.name}</h3>
-                        <p>Bayar saat barang diterima</p>
+                        <h3>Cash on Delivery</h3>
+                        <p>Bayar di Tempat</p>
                     </div>
                 </div>
                 <div class="amount-info">
+                    <div class="amount-row">
+                        <span>Total Tagihan</span>
+                        <span>Rp ${orderData.total.toLocaleString()}</span>
+                    </div>
                     <div class="amount-row total">
-                        <span>Total yang harus dibayar</span>
+                        <span>Yang harus dibayar saat COD</span>
                         <span>Rp ${orderData.total.toLocaleString()}</span>
                     </div>
                 </div>
-                <p style="text-align: center; color: #666; margin-top: 15px;">💡 Siapkan uang tunai saat kurir datang</p>
+                <p style="text-align: center; color: #666; margin-top: 15px; padding: 10px; background: white; border-radius: 10px;">
+                    💡 <strong>Tips:</strong> Siapkan uang tunai pas saat kurir datang
+                </p>
+            `;
+            
+            instructionDiv.className = 'instruction cod-instruction';
+            instructionDiv.innerHTML = `
+                <h4>📝 Cara Pembayaran COD:</h4>
+                <ol>
+                    <li>Pesanan akan diproses dan dikirim ke alamat Anda</li>
+                    <li>Kurir akan menghubungi sebelum sampai</li>
+                    <li>Siapkan uang tunai sebesar <strong>Rp ${orderData.total.toLocaleString()}</strong></li>
+                    <li>Bayarkan langsung kepada kurir saat barang diterima</li>
+                    <li>Periksa kondisi barang sebelum membayar</li>
+                    <li>Setelah membayar, pesanan selesai</li>
+                </ol>
+            `;
+            
+            timerSection.style.display = 'none';
+            paymentNote.innerHTML = `
+                * Pesanan akan segera diproses setelah checkout<br>
+                * Pastikan Anda berada di alamat tujuan saat kurir datang<br>
+                * Siapkan uang tunai tepat untuk mempercepat transaksi
             `;
         }
         
-        // Update confirm amount
-        document.getElementById('confirm-amount').innerHTML = `Rp ${orderData.total.toLocaleString()}`;
-        
-        // Timer countdown (24 jam)
+        // Timer countdown (hanya untuk transfer bank)
         let timeLeft = 24 * 60 * 60; // 24 jam dalam detik
+        let timerInterval;
         
         function updateTimer() {
-            const hours = Math.floor(timeLeft / 3600);
-            const minutes = Math.floor((timeLeft % 3600) / 60);
-            const seconds = timeLeft % 60;
-            
-            const timerElement = document.getElementById('timer');
-            if (timerElement) {
-                timerElement.innerHTML = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            }
-            
-            if (timeLeft > 0) {
-                timeLeft--;
-            } else {
-                // Waktu habis, hapus pesanan
-                clearInterval(timerInterval);
-                alert('Waktu pembayaran telah habis! Pesanan Anda dibatalkan.');
-                localStorage.removeItem('currentOrder');
-                window.location.href = 'index.html';
+            if (paymentMethod === 'bank') {
+                const hours = Math.floor(timeLeft / 3600);
+                const minutes = Math.floor((timeLeft % 3600) / 60);
+                const seconds = timeLeft % 60;
+                
+                const timerElement = document.getElementById('timer');
+                if (timerElement) {
+                    timerElement.innerHTML = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                }
+                
+                if (timeLeft > 0) {
+                    timeLeft--;
+                } else {
+                    clearInterval(timerInterval);
+                    alert('Waktu pembayaran telah habis! Pesanan Anda dibatalkan.');
+                    localStorage.removeItem('currentOrder');
+                    window.location.href = 'index.html';
+                }
             }
         }
         
-        updateTimer();
-        const timerInterval = setInterval(updateTimer, 1000);
-        
-        // Simpan timer interval untuk dibersihkan nanti
-        window.timerInterval = timerInterval;
+        if (paymentMethod === 'bank') {
+            updateTimer();
+            timerInterval = setInterval(updateTimer, 1000);
+            window.timerInterval = timerInterval;
+        }
         
         // Fungsi copy VA Number
         window.copyVANumber = function() {
@@ -453,7 +525,6 @@
             if (vaNumberElement) {
                 const vaText = vaNumberElement.innerText;
                 navigator.clipboard.writeText(vaText).then(() => {
-                    // Tampilkan notifikasi
                     const toast = document.createElement('div');
                     toast.innerHTML = '✅ Nomor VA telah disalin!';
                     toast.style.cssText = `
@@ -471,16 +542,22 @@
         const confirmBtn = document.getElementById('confirm-payment');
         if (confirmBtn) {
             confirmBtn.addEventListener('click', () => {
-                // Simpan status pembayaran
-                orderData.paymentStatus = 'paid';
-                orderData.paidAt = new Date().toISOString();
-                localStorage.setItem('currentOrder', JSON.stringify(orderData));
-                
-                // Hapus timer interval
-                clearInterval(window.timerInterval);
-                
-                // Redirect ke halaman sukses
-                window.location.href = 'payment-success.html';
+                if (paymentMethod === 'bank') {
+                    // Untuk transfer bank
+                    const confirmTransfer = confirm('Apakah Anda sudah melakukan transfer sesuai nominal?');
+                    if (confirmTransfer) {
+                        orderData.paymentStatus = 'paid';
+                        orderData.paidAt = new Date().toISOString();
+                        localStorage.setItem('currentOrder', JSON.stringify(orderData));
+                        if (timerInterval) clearInterval(timerInterval);
+                        window.location.href = 'payment-success.html';
+                    }
+                } else {
+                    // Untuk COD
+                    orderData.paymentStatus = 'pending_cod';
+                        localStorage.setItem('currentOrder', JSON.stringify(orderData));
+                    window.location.href = 'payment-success.html';
+                }
             });
         }
     </script>
