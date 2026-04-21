@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bless Bakery - Testimoni</title>
+    <link rel="stylesheet" href="bless.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .testimoni-hero {
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            border-radius: 0 0 50px 50px;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        .testimoni-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+        .testimonial-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .testimonial-card-large {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        .testimonial-card-large:hover {
+            transform: translateY(-5px);
+        }
+        .testimonial-card-large .stars {
+            color: #f1c40f;
+            margin-bottom: 15px;
+        }
+        .testimonial-card-large p {
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .testimonial-card-large .author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .testimonial-card-large .author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .testimonial-card-large .author h4 {
+            margin-bottom: 5px;
+            color: var(--primary-green);
+        }
+        .rating-static {
+            color: #f1c40f;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="top-bar">
+        <span>Gratis Ongkir & Diskon 15% Untuk Pengguna Baru! Code: BLESSNEW</span>
+        <a href="promo.html" class="btn-top">Belanja sekarang &gt;</a>
+    </div>
+
+    <div class="header-main">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <span class="logo-bless">bléss</span><br>
+                <span class="logo-bakery">bakery</span>
+            </a>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Cari produk...">
+            <span class="search-icon">🔍</span>
+        </div>
+        
+        <div class="nav-icons">
+            <a href="javascript:void(0)" id="wishlist-icon" class="wishlist-icon">
+                ♡ <span id="wishlist-count" class="wishlist-count">0</span>
+            </a>
+            <a href="javascript:void(0)" id="user-icon">👤</a>
+            <a href="javascript:void(0)" id="cart-icon" style="position: relative;">
+                🛒 <span id="cart-count" class="cart-badge">0</span>
+            </a>
+        </div>
+    </div>
+
+    <nav class="sub-nav">
+        <a href="index.html">Beranda</a>
+        <a href="produk.html">Produk</a>
+        <a href="promo.html">Promo</a>
+        <a href="tentang.html">Tentang Kami</a>
+        <a href="kontak.html">Hubungi Kami</a>
+        <a href="testimoni.html" class="active">Testimoni</a>
+    </nav>
+</header>
+
+<main>
+    <div class="testimoni-hero">
+        <h1>Apa Kata Mereka?</h1>
+        <p>Kepuasan pelanggan adalah kebahagiaan kami</p>
+    </div>
+    
+    <div class="testimonials-container">
+        <div class="testimonial-list">
+            <div class="testimonial-card-large">
+                <div class="stars">★★★★★</div>
+                <p>"Rotinya lembut banget dan isian coklatnya melimpah! Favorit keluarga kalau sore-sore. Pengirimannya juga cepat. Pasti order lagi!"</p>
+                <div class="author">
+                    <img src="image/user1.jpeg" alt="User 1">
+                    <div>
+                        <h4>Jamal Bieber</h4>
+                        <span>Pelanggan Setia</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card-large">
+                <div class="stars">★★★★★</div>
+                <p>"Garlic bread-nya juara! Cream cheese-nya nggak pelit. Sudah coba banyak bakery, tapi Bless Bakery yang paling cocok dengan lidah saya."</p>
+                <div class="author">
+                    <img src="image/user2.jpeg" alt="User 2">
+                    <div>
+                        <h4>Martin Ismael</h4>
+                        <span>Food Vlogger</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card-large">
+                <div class="stars">★★★★★</div>
+                <p>"Custom cake untuk ulang tahun anak saya sangat cantik dan rasanya enak sekali, tidak terlalu manis, pas di lidah. Terima kasih Bless Bakery!"</p>
+                <div class="author">
+                    <img src="image/user3.jpeg" alt="User 3">
+                    <div>
+                        <h4>Minju</h4>
+                        <span>Ibu Rumah Tangga</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card-large">
+                <div class="stars">★★★★★</div>
+                <p>"Donatnya empuk dan toppingnya melimpah. Harga terjangkau, cocok untuk camilan sehari-hari. Recommended!"</p>
+                <div class="author">
+                    <img src="image/user1.jpeg" alt="User 4">
+                    <div>
+                        <h4>Andi Wijaya</h4>
+                        <span>Kolektor Donat</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card-large">
+                <div class="stars">★★★★★</div>
+                <p>"Pelayanannya ramah, rotinya fresh. Saya jadi langganan di sini. Terus pertahankan kualitasnya ya Bless Bakery!"</p>
+                <div class="author">
+                    <img src="image/user2.jpeg" alt="User 5">
+                    <div>
+                        <h4>Siti Aminah</h4>
+                        <span>Langganan 2 Tahun</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card-large">
+                <div class="stars">★★★★★</div>
+                <p>"Puff pastry-nya renyah dan gurih. Cocok untuk teman minum teh sore. Next mau coba varian lainnya!"</p>
+                <div class="author">
+                    <img src="image/user3.jpeg" alt="User 6">
+                    <div>
+                        <h4>Dewi Lestari</h4>
+                        <span>Penikmat Pastry</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer-content">
+        <h3>Bless Bakery</h3>
+        <p>Roti Segar, Penuh Berkat Setiap Hari</p>
+        <div class="footer-contact-info">
+            <p>📍 Jl. H. Agus Salim No. 130, Madiun</p>
+            <p>📍 Jl. Kelapa Manis No. 16 A-B, Madiun</p>
+            <p>📞 +62 812-3456-7890</p>
+            <p>📧 hello@blessbakery.com</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Bless Bakery. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="bakery.js"></script>
+</body>
+</html>

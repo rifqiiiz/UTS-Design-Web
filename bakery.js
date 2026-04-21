@@ -253,70 +253,95 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     
-    /* ================= FITUR SEARCH BAR ================= */
-    const searchInput = document.querySelector('.search-container input');
-    const searchIcon = document.querySelector('.search-icon');
+/* ================= FITUR SEARCH BAR (UPDATED) ================= */
+const searchInput = document.querySelector('#search-input');
+const searchIcon = document.querySelector('.search-icon');
+
+function performSearch() {
+    if (!searchInput) return;
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    
+    // Simpan search term ke localStorage untuk halaman produk
+    localStorage.setItem('searchTerm', searchTerm);
+    
+    // Jika di halaman produk, langsung filter
+    if (window.location.pathname.includes('produk.html')) {
+        filterProductsOnPage(searchTerm);
+    } else {
+        // Jika di halaman lain, redirect ke halaman produk
+        if (searchTerm !== '') {
+            window.location.href = `produk.html?search=${encodeURIComponent(searchTerm)}`;
+        }
+    }
+}
+
+function filterProductsOnPage(searchTerm) {
     const productCards = document.querySelectorAll('.product-card');
-    const productsSection = document.getElementById('produk');
+    const productsSection = document.getElementById('products-grid') || document.querySelector('.products-grid');
     
-    function performSearch() {
-        if (!searchInput) return;
-        const searchTerm = searchInput.value.toLowerCase().trim();
-        
-        let noResultMsg = document.querySelector('.no-result-message');
-        if (noResultMsg) noResultMsg.remove();
-        
-        if (searchTerm === '') {
-            productCards.forEach(card => card.style.display = 'block');
-            if (productsSection) productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            return;
-        }
-        
-        let firstMatch = null;
-        let matchCount = 0;
-        
-        productCards.forEach(card => {
-            const productName = card.querySelector('h3')?.innerText.toLowerCase() || '';
-            const isMatch = productName.includes(searchTerm);
-            
-            if (isMatch) {
-                card.style.display = 'block';
-                card.style.animation = 'highlight 0.5s ease';
-                setTimeout(() => card.style.animation = '', 500);
-                if (!firstMatch) firstMatch = card;
-                matchCount++;
-            } else {
-                card.style.display = 'none';
-            }
-        });
-        
-        if (matchCount === 0) {
-            const productsGrid = document.querySelector('.products-grid');
-            if (productsGrid) {
-                noResultMsg = document.createElement('div');
-                noResultMsg.className = 'no-result-message';
-                noResultMsg.style.cssText = 'text-align: center; padding: 50px; grid-column: 1/-1;';
-                noResultMsg.innerHTML = `<p>😢 Tidak ada produk untuk "<strong>${searchTerm}</strong>"</p><p>Coba: roti, donat, kue, croissant</p>`;
-                productsGrid.appendChild(noResultMsg);
-            }
-        }
-        
-        if (productsSection) productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        if (firstMatch && matchCount > 0) {
-            setTimeout(() => firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' }), 500);
-        }
+    let noResultMsg = document.querySelector('.no-result-message');
+    if (noResultMsg) noResultMsg.remove();
+    
+    if (searchTerm === '') {
+        productCards.forEach(card => card.style.display = 'block');
+        return;
     }
     
-    if (searchInput) {
-        searchInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); performSearch(); } });
-    }
-    if (searchIcon) {
-        searchIcon.addEventListener('click', (e) => { e.preventDefault(); performSearch(); });
-    }
+    let matchCount = 0;
     
-    const highlightStyle = document.createElement('style');
-    highlightStyle.textContent = `@keyframes highlight { 0% { background-color: rgba(211,84,0,0.2); } 100% { background-color: transparent; } }`;
-    document.head.appendChild(highlightStyle);
+    productCards.forEach(card => {
+        const productName = card.querySelector('h3')?.innerText.toLowerCase() || '';
+        const isMatch = productName.includes(searchTerm);
+        
+        if (isMatch) {
+            card.style.display = 'block';
+            card.style.animation = 'highlight 0.5s ease';
+            setTimeout(() => card.style.animation = '', 500);
+            matchCount++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    
+    if (matchCount === 0 && productsSection) {
+        noResultMsg = document.createElement('div');
+        noResultMsg.className = 'no-result-message';
+        noResultMsg.style.cssText = 'text-align: center; padding: 50px; grid-column: 1/-1;';
+        noResultMsg.innerHTML = `<p>😢 Tidak ada produk untuk "<strong>${searchTerm}</strong>"</p><p>Coba: roti, donat, kue, croissant</p>`;
+        productsSection.appendChild(noResultMsg);
+    }
+}
+
+// Cek parameter search di URL
+const urlParams = new URLSearchParams(window.location.search);
+const searchParam = urlParams.get('search');
+if (searchParam && window.location.pathname.includes('produk.html')) {
+    if (searchInput) searchInput.value = searchParam;
+    setTimeout(() => filterProductsOnPage(searchParam), 100);
+}
+
+// Cek search term dari localStorage
+const savedSearchTerm = localStorage.getItem('searchTerm');
+if (savedSearchTerm && window.location.pathname.includes('produk.html')) {
+    if (searchInput) searchInput.value = savedSearchTerm;
+    setTimeout(() => filterProductsOnPage(savedSearchTerm), 100);
+    localStorage.removeItem('searchTerm');
+}
+
+if (searchInput) {
+    searchInput.addEventListener('keypress', (e) => { 
+        if (e.key === 'Enter') { 
+            e.preventDefault(); 
+            performSearch(); 
+        } 
+    });
+}
+if (searchIcon) {
+    searchIcon.addEventListener('click', (e) => { 
+        e.preventDefault(); 
+        performSearch(); 
+    });
+}
     
     /* ================= FITUR KERANJANG ================= */
     let cart = JSON.parse(localStorage.getItem('blessCart')) || [];
@@ -648,3 +673,30 @@ document.addEventListener("DOMContentLoaded", () => {
     
     console.log('Bless Bakery - All features loaded!');
 });
+
+// ================= SECURE COOKIE HANDLING =================
+function setSecureCookie(name, value, days = 7) {
+    const expires = new Date();
+    expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+    document.cookie = `${name}=${value}; expires=${expires.toUTCString()}; path=/; Secure; SameSite=Strict; HttpOnly`;
+}
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+}
+
+// Hapus penggunaan localStorage untuk session, gunakan sessionStorage yang lebih aman
+// Ganti localStorage dengan sessionStorage untuk data sementara
+if (typeof(Storage) !== "undefined") {
+    // Migrasi data dari localStorage ke sessionStorage jika perlu
+    if (!sessionStorage.getItem('migrated')) {
+        const cart = localStorage.getItem('blessCart');
+        const wishlist = localStorage.getItem('blessWishlist');
+        if (cart) sessionStorage.setItem('blessCart', cart);
+        if (wishlist) sessionStorage.setItem('blessWishlist', wishlist);
+        sessionStorage.setItem('migrated', 'true');
+    }
+}

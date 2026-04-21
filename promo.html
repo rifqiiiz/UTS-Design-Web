@@ -3,10 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bless Bakery - Beranda</title>
+    <title>Bless Bakery - Promo Spesial</title>
     <link rel="stylesheet" href="bless.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .promo-detail {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .promo-hero {
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            border-radius: 30px;
+            padding: 60px 40px;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        .promo-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .promo-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .promo-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        .promo-item:hover {
+            transform: translateY(-10px);
+        }
+        .promo-item-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        .promo-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .promo-item-content {
+            padding: 20px;
+        }
+        .promo-badge-large {
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .promo-item-content h3 {
+            margin-bottom: 10px;
+        }
+        .promo-item-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .promo-code {
+            background: var(--beige);
+            padding: 10px;
+            border-radius: 10px;
+            font-family: monospace;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
@@ -41,9 +111,9 @@
     </div>
 
     <nav class="sub-nav">
-        <a href="index.html" class="active">Beranda</a>
+        <a href="index.html">Beranda</a>
         <a href="produk.html">Produk</a>
-        <a href="promo.html">Promo</a>
+        <a href="promo.html" class="active">Promo</a>
         <a href="tentang.html">Tentang Kami</a>
         <a href="kontak.html">Hubungi Kami</a>
         <a href="testimoni.html">Testimoni</a>
@@ -51,186 +121,66 @@
 </header>
 
 <main>
-    <section class="hero" style="background-image: url('image/homebgone.jpg');">
-        <div class="hero-overlay"></div>
-        <button class="slider-btn prev-btn">&lt;</button>
-        <div class="hero-content">
-            <p class="welcome-text">SELAMAT DATANG</p>
-            <h1 class="main-title">di <span class="italic-serif">Bless</span> Bakery</h1>
-            <h2 class="sub-title">Donat & Kue Manis</h2>
-            <p class="description">Warna-warni ceria untuk harimu</p>
-            <div class="hero-buttons">
-                <a href="produk.html" class="btn btn-primary-light">Lihat Produk &gt;</a>
-                <a href="tentang.html" class="btn btn-outline-light">Tentang Kami</a>
-            </div>
+    <div class="promo-detail">
+        <div class="promo-hero">
+            <h1>🎉 Promo Spesial 🎉</h1>
+            <p>Dapatkan penawaran terbaik hanya di Bless Bakery</p>
         </div>
-        <button class="slider-btn next-btn">&gt;</button>
-        <div class="slider-dots">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot active"></span>
-            <span class="dot"></span>
-        </div>
-    </section>
-
-    <section class="promo-specials">
-        <div class="section-header">
-            <h2>Promo <span>Spesial</span></h2>
-            <p>Penawaran terbaik dari Bless Bakery untuk Anda</p>
-        </div>
-        <div class="promo-grid">
-            <div class="promo-card">
-                <div class="promo-content">
-                    <span class="promo-badge">-20% 🏷️</span>
-                    <h3>Diskon 20% Semua Roti</h3>
-                    <p>Berlaku untuk semua varian roti manis & tawar</p>
-                    <a href="promo.html" class="btn-promo">Lihat Promo ></a>
-                </div>
-                <div class="promo-img-circle">
+        
+        <div class="promo-list">
+            <div class="promo-item">
+                <div class="promo-item-img">
                     <img src="image/product1.jpg" alt="Promo Roti">
                 </div>
-            </div>
-            <div class="promo-card">
-                <div class="promo-content">
-                    <span class="promo-badge">2+1 🎁</span>
-                    <h3>Beli 2 Gratis 1</h3>
-                    <p>Promo bundle Donat Manis favorit semua kalangan</p>
-                    <a href="promo.html" class="btn-promo">Lihat Promo ></a>
+                <div class="promo-item-content">
+                    <span class="promo-badge-large">-20% 🏷️</span>
+                    <h3>Diskon 20% Semua Roti</h3>
+                    <p>Nikmati kelezatan roti segar dengan harga lebih hemat. Berlaku untuk semua varian roti manis & tawar.</p>
+                    <div class="promo-code">Kode Promo: ROTI20</div>
+                    <a href="produk.html" class="btn-promo" style="margin-top: 15px; display: inline-block;">Belanja Sekarang →</a>
                 </div>
-                <div class="promo-img-circle">
+            </div>
+            
+            <div class="promo-item">
+                <div class="promo-item-img">
                     <img src="image/product2.jpg" alt="Promo Donat">
                 </div>
-            </div>
-            <div class="promo-card">
-                <div class="promo-content">
-                    <span class="promo-badge">FREE 🚚</span>
-                    <h3>Gratis Ongkir</h3>
-                    <p>Min. belanja Rp 25.000 — pengiriman dalam kota</p>
-                    <a href="promo.html" class="btn-promo">Lihat Promo ></a>
+                <div class="promo-item-content">
+                    <span class="promo-badge-large">2+1 🎁</span>
+                    <h3>Beli 2 Gratis 1</h3>
+                    <p>Promo bundle Donat Manis favorit semua kalangan. Beli 2 donat apapun, gratis 1 donat pilihanmu!</p>
+                    <div class="promo-code">Kode Promo: DONAT2+1</div>
+                    <a href="produk.html" class="btn-promo" style="margin-top: 15px; display: inline-block;">Belanja Sekarang →</a>
                 </div>
-                <div class="promo-img-circle">
+            </div>
+            
+            <div class="promo-item">
+                <div class="promo-item-img">
                     <img src="image/product4.jpg" alt="Promo Ongkir">
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="products">
-        <div class="section-header">
-            <h2>Produk <span>Populer</span></h2>
-            <p>Pilihan favorit pelanggan kami, dipanggang segar setiap hari</p>
-        </div>
-        
-        <div class="products-grid">
-            <div class="product-card">
-                <button class="wishlist-btn">♡</button>
-                <img src="image/product1.jpg" alt="Cream Cheese Garlic Bread" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-name-link">Cream Cheese Garlic Bread</h3>
-                    <div class="rating">★★★★★</div>
-                    <div class="price-row">
-                        <span class="price-tag">Rp 25.000</span>
-                        <button class="btn-add">🛒 Tambah</button>
-                    </div>
+                <div class="promo-item-content">
+                    <span class="promo-badge-large">FREE 🚚</span>
+                    <h3>Gratis Ongkir</h3>
+                    <p>Minimal belanja Rp 25.000 untuk pengiriman dalam kota. Nikmati belanja tanpa biaya pengiriman!</p>
+                    <div class="promo-code">Minimal Belanja Rp 25.000</div>
+                    <a href="produk.html" class="btn-promo" style="margin-top: 15px; display: inline-block;">Belanja Sekarang →</a>
                 </div>
             </div>
-
-            <div class="product-card">
-                <button class="wishlist-btn">♡</button>
-                <img src="image/product2.jpg" alt="Donat Manis" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-name-link">Donat Manis</h3>
-                    <div class="rating">★★★★★</div>
-                    <div class="price-row">
-                        <span class="price-tag">Rp 12.000</span>
-                        <button class="btn-add">🛒 Tambah</button>
-                    </div>
+            
+            <div class="promo-item">
+                <div class="promo-item-img">
+                    <img src="image/product8.jpg" alt="Promo Kue">
                 </div>
-            </div>
-
-            <div class="product-card">
-                <button class="wishlist-btn">♡</button>
-                <img src="image/product3.jpg" alt="Bolen Pisang Keju" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-name-link">Bolen Pisang Keju</h3>
-                    <div class="rating">★★★★★</div>
-                    <div class="price-row">
-                        <span class="price-tag">Rp 35.000</span>
-                        <button class="btn-add">🛒 Tambah</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <button class="wishlist-btn">♡</button>
-                <img src="image/product4.jpg" alt="Croissant Butter" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-name-link">Croissant Butter</h3>
-                    <div class="rating">★★★★★</div>
-                    <div class="price-row">
-                        <span class="price-tag">Rp 22.000</span>
-                        <button class="btn-add">🛒 Tambah</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <button class="wishlist-btn">♡</button>
-                <img src="image/product5.jpg" alt="Bluder" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-name-link">Bluder Premium</h3>
-                    <div class="rating">★★★★★</div>
-                    <div class="price-row">
-                        <span class="price-tag">Rp 15.000</span>
-                        <button class="btn-add">🛒 Tambah</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <button class="wishlist-btn">♡</button>
-                <img src="image/product6.jpg" alt="Roti Isi Coklat" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-name-link">Roti Isi Coklat</h3>
-                    <div class="rating">★★★★★</div>
-                    <div class="price-row">
-                        <span class="price-tag">Rp 10.000</span>
-                        <button class="btn-add">🛒 Tambah</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <button class="wishlist-btn">♡</button>
-                <img src="image/product7.jpg" alt="Roti Isi Keju" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-name-link">Roti Isi Keju</h3>
-                    <div class="rating">★★★★★</div>
-                    <div class="price-row">
-                        <span class="price-tag">Rp 11.000</span>
-                        <button class="btn-add">🛒 Tambah</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <button class="wishlist-btn">♡</button>
-                <img src="image/product8.jpg" alt="Cake Ulang Tahun" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-name-link">Cake Ulang Tahun</h3>
-                    <div class="rating">★★★★★</div>
-                    <div class="price-row">
-                        <span class="price-tag">Rp 180.000</span>
-                        <button class="btn-add">🛒 Tambah</button>
-                    </div>
+                <div class="promo-item-content">
+                    <span class="promo-badge-large">NEW USER 🎊</span>
+                    <h3>Diskon 15% untuk Member Baru</h3>
+                    <p>Pendaftaran pertama? Dapatkan diskon 15% untuk pembelian pertama Anda di Bless Bakery.</p>
+                    <div class="promo-code">Kode Promo: BLESSNEW</div>
+                    <a href="produk.html" class="btn-promo" style="margin-top: 15px; display: inline-block;">Belanja Sekarang →</a>
                 </div>
             </div>
         </div>
-        
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="produk.html" class="btn-primary-light" style="background: var(--primary-green); color: white;">Lihat Semua Produk →</a>
-        </div>
-    </section>
+    </div>
 </main>
 
 <footer class="footer">
@@ -327,7 +277,7 @@
 
 <div id="login-modal" class="login-modal">
     <div class="login-modal-content">
-        <span class="close-modal" style="position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; color: #888;">&times;</span>
+        <span class="close-modal">&times;</span>
         <div class="login-header">
             <h2>Selamat Datang Kembali!</h2>
             <p>Login untuk mendapatkan pengalaman berbelanja lebih baik</p>
@@ -351,7 +301,7 @@
 
 <div id="register-modal" class="login-modal">
     <div class="login-modal-content">
-        <span class="close-modal" style="position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; color: #888;">&times;</span>
+        <span class="close-modal">&times;</span>
         <div class="login-header">
             <h2>Daftar Akun Baru</h2>
             <p>Bergabunglah dengan Bless Bakery</p>

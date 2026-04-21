@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bless Bakery - Hubungi Kami</title>
+    <link rel="stylesheet" href="bless.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .contact-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        .contact-info {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .contact-info h2 {
+            text-align: left;
+            margin-bottom: 20px;
+            color: var(--primary-green);
+        }
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            transition: transform 0.3s ease;
+        }
+        .info-item:hover {
+            transform: translateX(5px);
+        }
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--beige);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        .info-text h4 {
+            margin-bottom: 5px;
+            color: var(--primary-green);
+        }
+        .info-text p {
+            color: #666;
+            margin: 0;
+        }
+        /* Style untuk tombol alamat */
+        .location-button {
+            display: inline-block;
+            background: var(--primary-green);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            margin-top: 5px;
+        }
+        .location-button:hover {
+            background: var(--accent-color);
+            transform: scale(1.02);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        /* Style untuk link telepon & email */
+        .contact-link {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .contact-link:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        .maps-hint {
+            display: block;
+            font-size: 11px;
+            color: #888;
+            margin-top: 5px;
+        }
+        .contact-form {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .contact-form h2 {
+            text-align: left;
+            margin-bottom: 20px;
+            color: var(--primary-green);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+        .btn-submit {
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover {
+            background: var(--light-green);
+        }
+        .map-container {
+            margin-top: 50px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+        }
+        .social-media-section {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        .social-media-section h4 {
+            margin-bottom: 15px;
+            color: var(--primary-green);
+        }
+        .social-icons-small {
+            display: flex;
+            gap: 15px;
+        }
+        .social-icon-small {
+            width: 40px;
+            height: 40px;
+            background: var(--beige);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .social-icon-small svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary-green);
+        }
+        .social-icon-small:hover {
+            background: var(--primary-green);
+            transform: translateY(-3px);
+        }
+        .social-icon-small:hover svg {
+            fill: white;
+        }
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="top-bar">
+        <span>Gratis Ongkir & Diskon 15% Untuk Pengguna Baru! Code: BLESSNEW</span>
+        <a href="promo.html" class="btn-top">Belanja sekarang &gt;</a>
+    </div>
+
+    <div class="header-main">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <span class="logo-bless">bléss</span><br>
+                <span class="logo-bakery">bakery</span>
+            </a>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Cari produk...">
+            <span class="search-icon">🔍</span>
+        </div>
+        
+        <div class="nav-icons">
+            <a href="javascript:void(0)" id="wishlist-icon" class="wishlist-icon">
+                ♡ <span id="wishlist-count" class="wishlist-count">0</span>
+            </a>
+            <a href="javascript:void(0)" id="user-icon">👤</a>
+            <a href="javascript:void(0)" id="cart-icon" style="position: relative;">
+                🛒 <span id="cart-count" class="cart-badge">0</span>
+            </a>
+        </div>
+    </div>
+
+    <nav class="sub-nav">
+        <a href="index.html">Beranda</a>
+        <a href="produk.html">Produk</a>
+        <a href="promo.html">Promo</a>
+        <a href="tentang.html">Tentang Kami</a>
+        <a href="kontak.html" class="active">Hubungi Kami</a>
+        <a href="testimoni.html">Testimoni</a>
+    </nav>
+</header>
+
+<main>
+    <div class="contact-container">
+        <div class="contact-grid">
+            <!-- KIRI: Informasi Kontak -->
+            <div class="contact-info">
+                <h2>📍 Informasi Kontak</h2>
+                
+                <!-- Alamat Toko 1 - Tombol Maps -->
+                <div class="info-item">
+                    <div class="info-icon">🏪</div>
+                    <div class="info-text">
+                        <h4>Alamat Toko 1</h4>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Jl.+H.+Agus+Salim+No.+130,+Madiun" target="_blank" class="location-button">
+                            🗺️ Jl. H. Agus Salim No. 130, Madiun
+                        </a>
+                        <small class="maps-hint">Klik untuk buka Google Maps →</small>
+                    </div>
+                </div>
+                
+                <!-- Alamat Toko 2 - Tombol Maps -->
+                <div class="info-item">
+                    <div class="info-icon">🏪</div>
+                    <div class="info-text">
+                        <h4>Alamat Toko 2</h4>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Jl.+Kelapa+Manis+No.+16+Madiun" target="_blank" class="location-button">
+                            🗺️ Jl. Kelapa Manis No. 16 A-B, Madiun
+                        </a>
+                        <small class="maps-hint">Klik untuk buka Google Maps →</small>
+                    </div>
+                </div>
+                
+                <!-- Telepon - Bisa diklik -->
+                <div class="info-item">
+                    <div class="info-icon">📞</div>
+                    <div class="info-text">
+                        <h4>Telepon / WhatsApp</h4>
+                        <a href="tel:+6281234567890" class="contact-link">📱 +62 812-3456-7890</a>
+                        <p><small>Senin - Minggu, 08:00 - 21:00 WIB</small></p>
+                    </div>
+                </div>
+                
+                <!-- Email - Bisa diklik -->
+                <div class="info-item">
+                    <div class="info-icon">📧</div>
+                    <div class="info-text">
+                        <h4>Email</h4>
+                        <a href="mailto:hello@blessbakery.com" class="contact-link">✉️ hello@blessbakery.com</a>
+                        <p><small>Kami akan membalas dalam 1x24 jam</small></p>
+                    </div>
+                </div>
+                
+                <!-- Jam Operasional -->
+                <div class="info-item">
+                    <div class="info-icon">🕐</div>
+                    <div class="info-text">
+                        <h4>Jam Operasional</h4>
+                        <p>Senin - Minggu: 08:00 - 21:00 WIB</p>
+                        <p><small>Buka Setiap Hari (Termasuk Libur Nasional)</small></p>
+                    </div>
+                </div>
+                
+                <!-- Social Media -->
+                <div class="social-media-section">
+                    <h4>📱 Ikuti Kami di Media Sosial</h4>
+                    <div class="social-icons-small">
+                        <a href="https://www.instagram.com/blessbakery.indo/" target="_blank" class="social-icon-small">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/>
+                            </svg>
+                        </a>
+                        <a href="https://facebook.com/blessbakery" target="_blank" class="social-icon-small">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/blessbakery" target="_blank" class="social-icon-small">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="social-icon-small">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@blessbakery" target="_blank" class="social-icon-small">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- KANAN: Formulir Kontak -->
+            <div class="contact-form">
+                <h2>📝 Kirim Pesan</h2>
+                <p style="margin-bottom: 20px; color: #666;">Ada pertanyaan atau saran? Isi form di bawah, kami akan segera merespon!</p>
+                
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label>Nama Lengkap <span style="color: red;">*</span></label>
+                        <input type="text" id="contact-name" placeholder="Masukkan nama lengkap Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email <span style="color: red;">*</span></label>
+                        <input type="email" id="contact-email" placeholder="email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nomor Telepon (Opsional)</label>
+                        <input type="tel" id="contact-phone" placeholder="0812-3456-7890">
+                    </div>
+                    <div class="form-group">
+                        <label>Subjek <span style="color: red;">*</span></label>
+                        <input type="text" id="contact-subject" placeholder="Subjek pesan" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Pesan <span style="color: red;">*</span></label>
+                        <textarea id="contact-message" rows="5" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        ✉️ Kirim Pesan
+                    </button>
+                </form>
+                
+                <div id="form-status" style="margin-top: 15px; font-size: 14px;"></div>
+            </div>
+        </div>
+        
+        <!-- Google Maps Embedded -->
+        <div class="map-container">
+            <h3 style="margin-bottom: 15px; color: var(--primary-green);">📍 Lokasi Toko Kami</h3>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.314514759428!2d111.523748!3d-7.634569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e79b5e8e8e8e8e8%3A0x8e8e8e8e8e8e8e8e!2sMadiun!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <p style="margin-top: 10px; font-size: 12px; color: #666; text-align: center;">
+                📍 Jl. H. Agus Salim No. 130 & Jl. Kelapa Manis No. 16 A-B, Madiun
+            </p>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer-content">
+        <h3>Bless Bakery</h3>
+        <p>Roti Segar, Penuh Berkat Setiap Hari</p>
+        
+        <div class="social-media">
+            <h4>Ikuti Kami</h4>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/blessbakery.indo/" target="_blank" class="social-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/>
+                    </svg>
+                </a>
+                <a href="https://facebook.com/blessbakery" target="_blank" class="social-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                    </svg>
+                </a>
+                <a href="https://twitter.com/blessbakery" target="_blank" class="social-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                    </svg>
+                </a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="social-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer-contact-info">
+            <!-- Alamat 1 - Klik untuk buka Google Maps -->
+            <p class="location-item">
+                <a href="https://www.google.com/maps/search/?api=1&query=-7.629,111.523" target="_blank" class="location-link">
+                    📍 Jl. H. Agus Salim No. 130, Madiun
+                </a>
+            </p>
+            <!-- Alamat 2 - Klik untuk buka Google Maps -->
+            <p class="location-item">
+                <a href="https://www.google.com/maps/search/?api=1&query=-7.630,111.524" target="_blank" class="location-link">
+                    📍 Jl. Kelapa Manis No. 16 A-B, Madiun
+                </a>
+            </p>
+            <p>📞 <a href="tel:+6281234567890" class="contact-link">+62 812-3456-7890</a></p>
+            <p>📧 <a href="mailto:hello@blessbakery.com" class="contact-link">hello@blessbakery.com</a></p>
+            <p>🎁 Buka Setiap Hari: 08:00 - 21:00 WIB</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Bless Bakery. All rights reserved.</p>
+        <div class="footer-bottom-links">
+            <a href="#">Kebijakan Privasi</a>
+            <a href="#">Syarat & Ketentuan</a>
+            <a href="#">FAQ</a>
+        </div>
+    </div>
+</footer>
+
+<!-- Modal & Sidebar Components -->
+<div id="product-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-body">
+            <div class="modal-img">
+                <img id="modal-img-src" src="" alt="">
+            </div>
+            <div class="modal-info">
+                <h2 id="modal-title"></h2>
+                <p class="modal-price" id="modal-price"></p>
+                <div class="rating">★★★★★</div>
+                <p class="modal-desc">Produk ini dibuat dengan bahan berkualitas tinggi, dipanggang segar setiap hari.</p>
+                <button id="modal-add-btn" class="btn-add">🛒 Tambah ke Keranjang</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+        <h3>Keranjang Belanja</h3>
+        <span class="close-cart">&times;</span>
+    </div>
+    <div id="cart-items" class="cart-items-container"></div>
+    <div class="cart-footer">
+        <div class="total-price">
+            <span>Total:</span>
+            <span id="cart-total">Rp 0</span>
+        </div>
+        <button class="btn-checkout">Checkout Sekarang</button>
+    </div>
+</div>
+
+<div id="login-modal" class="login-modal">
+    <div class="login-modal-content">
+        <span class="close-modal" style="position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; color: #888;">&times;</span>
+        <div class="login-header">
+            <h2>Selamat Datang Kembali!</h2>
+            <p>Login untuk mendapatkan pengalaman berbelanja lebih baik</p>
+        </div>
+        <form id="login-form">
+            <div class="login-form-group">
+                <label>Email</label>
+                <input type="email" id="login-email" placeholder="Masukkan email Anda" required>
+            </div>
+            <div class="login-form-group">
+                <label>Password</label>
+                <input type="password" id="login-password" placeholder="Masukkan password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+        <div class="login-footer">
+            <p>Belum punya akun? <a href="#" id="register-link">Daftar Sekarang</a></p>
+        </div>
+    </div>
+</div>
+
+<div id="register-modal" class="login-modal">
+    <div class="login-modal-content">
+        <span class="close-modal" style="position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; color: #888;">&times;</span>
+        <div class="login-header">
+            <h2>Daftar Akun Baru</h2>
+            <p>Bergabunglah dengan Bless Bakery</p>
+        </div>
+        <form id="register-form">
+            <div class="login-form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" id="reg-name" placeholder="Masukkan nama lengkap" required>
+            </div>
+            <div class="login-form-group">
+                <label>Email</label>
+                <input type="email" id="reg-email" placeholder="Masukkan email" required>
+            </div>
+            <div class="login-form-group">
+                <label>Password</label>
+                <input type="password" id="reg-password" placeholder="Minimal 6 karakter" required>
+            </div>
+            <div class="login-form-group">
+                <label>Konfirmasi Password</label>
+                <input type="password" id="reg-confirm-password" placeholder="Konfirmasi password" required>
+            </div>
+            <button type="submit" class="login-btn">Daftar</button>
+        </form>
+        <div class="login-footer">
+            <p>Sudah punya akun? <a href="#" id="login-link">Login Sekarang</a></p>
+        </div>
+    </div>
+</div>
+
+<div id="wishlist-sidebar" class="wishlist-sidebar">
+    <div class="wishlist-header">
+        <h3>❤️ Wishlist Saya</h3>
+        <span class="close-wishlist">&times;</span>
+    </div>
+    <div id="wishlist-items" class="wishlist-items-container"></div>
+    <div class="wishlist-footer">
+        <button id="add-all-to-cart" class="btn-add-all">+ Tambahkan Semua ke Keranjang</button>
+    </div>
+</div>
+
+<script src="bakery.js"></script>
+<script>
+    // Form kontak submission
+    document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('contact-name').value;
+        const email = document.getElementById('contact-email').value;
+        const subject = document.getElementById('contact-subject').value;
+        const message = document.getElementById('contact-message').value;
+        
+        if (!name || !email || !subject || !message) {
+            document.getElementById('form-status').innerHTML = '<p style="color: red;">⚠️ Semua field wajib diisi!</p>';
+            return;
+        }
+        
+        // Simulasi pengiriman pesan
+        document.getElementById('form-status').innerHTML = '<p style="color: green;">✅ Pesan Anda telah terkirim! Kami akan menghubungi Anda segera.</p>';
+        
+        // Reset form
+        document.getElementById('contact-form').reset();
+        
+        // Hilangkan pesan setelah 5 detik
+        setTimeout(() => {
+            document.getElementById('form-status').innerHTML = '';
+        }, 5000);
+    });
+</script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bless Bakery - Beranda</title>
+    <title>Bless Bakery - Semua Produk</title>
     <link rel="stylesheet" href="bless.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -41,8 +41,8 @@
     </div>
 
     <nav class="sub-nav">
-        <a href="index.html" class="active">Beranda</a>
-        <a href="produk.html">Produk</a>
+        <a href="index.html">Beranda</a>
+        <a href="produk.html" class="active">Produk</a>
         <a href="promo.html">Promo</a>
         <a href="tentang.html">Tentang Kami</a>
         <a href="kontak.html">Hubungi Kami</a>
@@ -51,78 +51,22 @@
 </header>
 
 <main>
-    <section class="hero" style="background-image: url('image/homebgone.jpg');">
-        <div class="hero-overlay"></div>
-        <button class="slider-btn prev-btn">&lt;</button>
-        <div class="hero-content">
-            <p class="welcome-text">SELAMAT DATANG</p>
-            <h1 class="main-title">di <span class="italic-serif">Bless</span> Bakery</h1>
-            <h2 class="sub-title">Donat & Kue Manis</h2>
-            <p class="description">Warna-warni ceria untuk harimu</p>
-            <div class="hero-buttons">
-                <a href="produk.html" class="btn btn-primary-light">Lihat Produk &gt;</a>
-                <a href="tentang.html" class="btn btn-outline-light">Tentang Kami</a>
-            </div>
-        </div>
-        <button class="slider-btn next-btn">&gt;</button>
-        <div class="slider-dots">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot active"></span>
-            <span class="dot"></span>
-        </div>
-    </section>
-
-    <section class="promo-specials">
+    <section class="products" style="padding-top: 40px;">
         <div class="section-header">
-            <h2>Promo <span>Spesial</span></h2>
-            <p>Penawaran terbaik dari Bless Bakery untuk Anda</p>
-        </div>
-        <div class="promo-grid">
-            <div class="promo-card">
-                <div class="promo-content">
-                    <span class="promo-badge">-20% 🏷️</span>
-                    <h3>Diskon 20% Semua Roti</h3>
-                    <p>Berlaku untuk semua varian roti manis & tawar</p>
-                    <a href="promo.html" class="btn-promo">Lihat Promo ></a>
-                </div>
-                <div class="promo-img-circle">
-                    <img src="image/product1.jpg" alt="Promo Roti">
-                </div>
-            </div>
-            <div class="promo-card">
-                <div class="promo-content">
-                    <span class="promo-badge">2+1 🎁</span>
-                    <h3>Beli 2 Gratis 1</h3>
-                    <p>Promo bundle Donat Manis favorit semua kalangan</p>
-                    <a href="promo.html" class="btn-promo">Lihat Promo ></a>
-                </div>
-                <div class="promo-img-circle">
-                    <img src="image/product2.jpg" alt="Promo Donat">
-                </div>
-            </div>
-            <div class="promo-card">
-                <div class="promo-content">
-                    <span class="promo-badge">FREE 🚚</span>
-                    <h3>Gratis Ongkir</h3>
-                    <p>Min. belanja Rp 25.000 — pengiriman dalam kota</p>
-                    <a href="promo.html" class="btn-promo">Lihat Promo ></a>
-                </div>
-                <div class="promo-img-circle">
-                    <img src="image/product4.jpg" alt="Promo Ongkir">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="products">
-        <div class="section-header">
-            <h2>Produk <span>Populer</span></h2>
-            <p>Pilihan favorit pelanggan kami, dipanggang segar setiap hari</p>
+            <h2>Semua <span>Produk</span></h2>
+            <p>Nikmati kelezatan roti dan kue terbaik dari Bless Bakery</p>
         </div>
         
-        <div class="products-grid">
-            <div class="product-card">
+        <div class="filter-categories">
+            <button class="filter-btn active" data-filter="semua">Semua</button>
+            <button class="filter-btn" data-filter="roti">Roti</button>
+            <button class="filter-btn" data-filter="donat">Donat</button>
+            <button class="filter-btn" data-filter="kue">Kue</button>
+            <button class="filter-btn" data-filter="pastry">Pastry</button>
+        </div>
+        
+        <div class="products-grid" id="products-grid">
+            <div class="product-card filter-item" data-category="roti">
                 <button class="wishlist-btn">♡</button>
                 <img src="image/product1.jpg" alt="Cream Cheese Garlic Bread" class="product-image">
                 <div class="product-info">
@@ -135,11 +79,11 @@
                 </div>
             </div>
 
-            <div class="product-card">
+            <div class="product-card filter-item" data-category="donat">
                 <button class="wishlist-btn">♡</button>
-                <img src="image/product2.jpg" alt="Donat Manis" class="product-image">
+                <img src="image/product2.jpg" alt="Donat Coklat" class="product-image">
                 <div class="product-info">
-                    <h3 class="product-name-link">Donat Manis</h3>
+                    <h3 class="product-name-link">Donat Coklat</h3>
                     <div class="rating">★★★★★</div>
                     <div class="price-row">
                         <span class="price-tag">Rp 12.000</span>
@@ -148,7 +92,7 @@
                 </div>
             </div>
 
-            <div class="product-card">
+            <div class="product-card filter-item" data-category="pastry">
                 <button class="wishlist-btn">♡</button>
                 <img src="image/product3.jpg" alt="Bolen Pisang Keju" class="product-image">
                 <div class="product-info">
@@ -161,7 +105,7 @@
                 </div>
             </div>
 
-            <div class="product-card">
+            <div class="product-card filter-item" data-category="pastry">
                 <button class="wishlist-btn">♡</button>
                 <img src="image/product4.jpg" alt="Croissant Butter" class="product-image">
                 <div class="product-info">
@@ -174,7 +118,7 @@
                 </div>
             </div>
 
-            <div class="product-card">
+            <div class="product-card filter-item" data-category="roti">
                 <button class="wishlist-btn">♡</button>
                 <img src="image/product5.jpg" alt="Bluder" class="product-image">
                 <div class="product-info">
@@ -187,7 +131,7 @@
                 </div>
             </div>
 
-            <div class="product-card">
+            <div class="product-card filter-item" data-category="roti">
                 <button class="wishlist-btn">♡</button>
                 <img src="image/product6.jpg" alt="Roti Isi Coklat" class="product-image">
                 <div class="product-info">
@@ -200,7 +144,7 @@
                 </div>
             </div>
 
-            <div class="product-card">
+            <div class="product-card filter-item" data-category="roti">
                 <button class="wishlist-btn">♡</button>
                 <img src="image/product7.jpg" alt="Roti Isi Keju" class="product-image">
                 <div class="product-info">
@@ -213,7 +157,7 @@
                 </div>
             </div>
 
-            <div class="product-card">
+            <div class="product-card filter-item" data-category="kue">
                 <button class="wishlist-btn">♡</button>
                 <img src="image/product8.jpg" alt="Cake Ulang Tahun" class="product-image">
                 <div class="product-info">
@@ -225,10 +169,58 @@
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="produk.html" class="btn-primary-light" style="background: var(--primary-green); color: white;">Lihat Semua Produk →</a>
+            
+            <div class="product-card filter-item" data-category="kue">
+                <button class="wishlist-btn">♡</button>
+                <img src="image/product9.jpg" alt="Red Velvet Cake" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name-link">Red Velvet Cake</h3>
+                    <div class="rating">★★★★★</div>
+                    <div class="price-row">
+                        <span class="price-tag">Rp 200.000</span>
+                        <button class="btn-add">🛒 Tambah</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card filter-item" data-category="donat">
+                <button class="wishlist-btn">♡</button>
+                <img src="image/product10.jpg" alt="Donat Strawberry" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name-link">Donat Strawberry</h3>
+                    <div class="rating">★★★★★</div>
+                    <div class="price-row">
+                        <span class="price-tag">Rp 13.000</span>
+                        <button class="btn-add">🛒 Tambah</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card filter-item" data-category="pastry">
+                <button class="wishlist-btn">♡</button>
+                <img src="image/product11.jpg" alt="Puff Pastry" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name-link">Puff Pastry Keju</h3>
+                    <div class="rating">★★★★★</div>
+                    <div class="price-row">
+                        <span class="price-tag">Rp 18.000</span>
+                        <button class="btn-add">🛒 Tambah</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card filter-item" data-category="roti">
+                <button class="wishlist-btn">♡</button>
+                <img src="image/product12.jpg" alt="Sourdough" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name-link">Sourdough Bread</h3>
+                    <div class="rating">★★★★★</div>
+                    <div class="price-row">
+                        <span class="price-tag">Rp 45.000</span>
+                        <button class="btn-add">🛒 Tambah</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </main>
